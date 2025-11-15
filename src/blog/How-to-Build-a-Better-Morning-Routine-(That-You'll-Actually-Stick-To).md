@@ -6,6 +6,7 @@ author: "Lena Hartwell"
 image:
   url: "https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1350&q=80"
   alt: "Hands holding a mug of coffee over a notebook and pen on a wooden table"
+  caption: "credit"
 tags: ["morning routine", "productivity", "habits"]
 ---
 

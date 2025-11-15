@@ -29,6 +29,7 @@ author: "<A realistic, human-sounding fictional author name>"
 image:
   url: "https://actual-working-image-url.com"
   alt: "Brief, descriptive alt text"
+  caption: "Image credit: <source or photographer>"
 tags: ["primary topic", "related theme", "relevant category"]
 ---
 

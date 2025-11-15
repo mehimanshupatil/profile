@@ -6,6 +6,7 @@ author: "HP Writer"
 image:
   url: "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1650&q=80"
   alt: "Sunset on a hiking trail, small adventure near home"
+  caption: "credit"
 tags: ["weekend micro-adventures", "blog", "writing"]
 ---
 
