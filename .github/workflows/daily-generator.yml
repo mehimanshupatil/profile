@@ -38,7 +38,7 @@ jobs:
       - name: Run blog generator
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-        run: node scripts/generate-blog.js
+        run: pnpm generate-blog
 
       - name: Build project
         run: pnpm build
