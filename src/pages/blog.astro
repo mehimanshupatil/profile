@@ -10,7 +10,7 @@ const allPosts = await getCollection("blog");
 <BaseLayout pageTitle={pageTitle}>
   <p>This is where I will post about my journey learning about things.</p>
   <ul class="blog-grid">
-    {allPosts.map((post) => <BlogPost data={post} />)}
+    {allPosts.map((post) => <BlogPost post={post} />)}
   </ul>
 </BaseLayout>
 

@@ -1,28 +1,29 @@
 ---
-const { data } = Astro.props;
-const { id, data: post } = data;
+const { post } = Astro.props;
 ---
 
 <li>
     <article class="blog-card">
         <img
-            src={post.image.url}
-            alt={post.image.alt}
+            src={post.data.image.url}
+            alt={post.data.image.alt}
             class="blog-card-image"
         />
 
         <div class="blog-card-content">
             <div class="blog-card-meta">
-                <span class="blog-card-date"
-                    >📅 {post.pubDate.toLocaleDateString()}</span
-                >
+                <span class="blog-card-date">
+                    📅 {post.data.pubDate.toLocaleDateString()}
+                </span>
             </div>
-            <h2 class="blog-card-title">{post.title}</h2>
+            <h2 class="blog-card-title">{post.data.title}</h2>
             <div class="blog-card-footer">
-                <span class="blog-card-author">✍️ {post.author}</span>
-                <a href={`/posts/${id}/`} class="blog-card-read-more"
-                    >Read more</a
-                >
+                <span class="blog-card-author">
+                    ✍️ {post.data.author}
+                </span>
+                <a href={`/posts/${post.id}/`} class="blog-card-read-more">
+                    Read more
+                </a>
             </div>
         </div>
     </article>
