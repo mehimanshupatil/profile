@@ -1,7 +1,99 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
- const pageTitle = "Home Page";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Warning from "../components/Warning";
+import Link from "../components/Link.astro";
+const pageTitle = "Home Page";
 ---
+
 <BaseLayout pageTitle={pageTitle}>
-  <h2>My awesome blog subtitle</h2>
+  <h2>My blog</h2>
+  <br /><br />
+  <Warning
+    message={String.fromCharCode(
+      119,
+      97,
+      114,
+      110,
+      105,
+      110,
+      103,
+      32,
+      97,
+      108,
+      108,
+      32,
+      98,
+      108,
+      111,
+      103,
+      115,
+      32,
+      111,
+      110,
+      32,
+      116,
+      104,
+      105,
+      115,
+      32,
+      112,
+      97,
+      103,
+      101,
+      32,
+      105,
+      115,
+      32,
+      103,
+      101,
+      110,
+      101,
+      114,
+      97,
+      116,
+      101,
+      100,
+      32,
+      98,
+      121,
+      32,
+      65,
+      73,
+      32,
+      98,
+      111,
+      116,
+      46,
+      32,
+      66,
+      97,
+      115,
+      105,
+      99,
+      97,
+      108,
+      108,
+      121,
+      32,
+      65,
+      73,
+      32,
+      83,
+      76,
+      79,
+      80,
+      46,
+    )}
+    client:load
+  />
+  <br /><br />
+  <Link
+    href="/subscriptions.opml"
+    message="Some wonderfull humans you can follow. open this file in rss reader"
+  />
+  <br /><br />
+  <Link
+    href="/rss.xml"
+    message="if you still want to follow blogs written every day. Here is link to rss"
+  />
 </BaseLayout>

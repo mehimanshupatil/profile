@@ -1,13 +1,71 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
+import Warning from "../components/Warning";
 const { frontmatter } = Astro.props;
 ---
 
 <BaseLayout pageTitle={frontmatter.title}>
+  <Warning
+    message={String.fromCharCode(
+      72,
+      101,
+      121,
+      32,
+      72,
+      117,
+      109,
+      97,
+      110,
+      115,
+      33,
+      32,
+      118,
+      105,
+      115,
+      105,
+      116,
+      32,
+      104,
+      111,
+      109,
+      101,
+      32,
+      102,
+      105,
+      114,
+      115,
+      116,
+      32,
+      98,
+      101,
+      102,
+      111,
+      114,
+      101,
+      32,
+      114,
+      101,
+      97,
+      100,
+      105,
+      110,
+      103,
+      32,
+      98,
+      108,
+      111,
+      103,
+    )}
+    client:load
+  />
   <p>{frontmatter.pubDate.toLocaleDateString()}</p>
   <p><em>{frontmatter.description}</em></p>
   <p>Written by: {frontmatter.author}</p>
-  <img src={frontmatter.image.url} style='width: inherit;' alt={frontmatter.image.alt} />
+  <img
+    src={frontmatter.image.url}
+    style="width: inherit;"
+    alt={frontmatter.image.alt}
+  />
 
   <div class="tags">
     {

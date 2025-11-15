@@ -1,0 +1,1566 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<opml version="2.0">
+  <head>
+    <title>My RSS Subscriptions</title>
+  </head>
+  <body>
+
+    <outline
+      text="Anil Dash"
+      title="Anil Dash"
+      type="rss"
+      xmlUrl="https://www.anildash.com/feed.xml"
+      htmlUrl="https://www.anildash.com"
+      description=""
+    />
+
+    <outline
+      text="Read the Tea Leaves"
+      title="Read the Tea Leaves"
+      type="rss"
+      xmlUrl="https://nolanlawson.com/feed/"
+      htmlUrl="https://nolanlawson.com"
+      description="Software and other dark arts, by Nolan Lawson"
+    />
+
+    <outline
+      text="Untitled Feed"
+      title="Untitled Feed"
+      type="rss"
+      xmlUrl="https://charliegerard.dev/rss.xml"
+      htmlUrl="https://charliegerard.dev"
+      description=""
+    />
+
+    <outline
+      text="Untitled Feed"
+      title="Untitled Feed"
+      type="rss"
+      xmlUrl="https://alexharri.com/rss.xml"
+      htmlUrl="https://alexharri.com"
+      description=""
+    />
+
+    <outline
+      text="scorpion dagger"
+      title="scorpion dagger"
+      type="rss"
+      xmlUrl="https://scorpiondagger.tumblr.com/rss"
+      htmlUrl="https://scorpiondagger.tumblr.com/"
+      description="James Kerr / Scorpion Dagger – These GIFs are digital collages made mostly from northern and early renaissance paintings"
+    />
+
+    <outline
+      text="Dan Mall Teaches"
+      title="Dan Mall Teaches"
+      type="rss"
+      xmlUrl="https://danmallteaches.substack.com/feed"
+      htmlUrl="https://danmallteaches.substack.com"
+      description=""
+    />
+
+    <outline
+      text="Ethical Design Network"
+      title="Ethical Design Network"
+      type="rss"
+      xmlUrl="https://ethicaldesignnetwork.com/feed/"
+      htmlUrl="https://ethicaldesignnetwork.com"
+      description="SHARE, INSPIRE, EMPOWER"
+    />
+
+    <outline
+      text="Fundament – Product Design Newsletter"
+      title="Fundament – Product Design Newsletter"
+      type="rss"
+      xmlUrl="https://www.fundament.design/feed"
+      htmlUrl="https://www.fundament.design"
+      description=""
+    />
+
+    <outline
+      text="Untitled Feed"
+      title="Untitled Feed"
+      type="rss"
+      xmlUrl="https://jarango.com/feed"
+      htmlUrl="https://jarango.com"
+      description=""
+    />
+
+    <outline
+      text="Design Spells Newsletter"
+      title="Design Spells Newsletter"
+      type="rss"
+      xmlUrl="https://www.designspells.com/feed"
+      htmlUrl="https://designspells.com"
+      description="An updating feed of all issues of the Design Spells newsletter — A biweekly newsletter featuring micro-interactions, easter eggs, and other seemingly extra design details that infuse life, personality, and fun back into the web."
+    />
+
+    <outline
+      text="The User Research Strategist"
+      title="The User Research Strategist"
+      type="rss"
+      xmlUrl="https://userresearchacademy.substack.com/feed"
+      htmlUrl="https://www.userresearchstrategist.com"
+      description=""
+    />
+
+    <outline
+      text="UX Content Collective"
+      title="UX Content Collective"
+      type="rss"
+      xmlUrl="https://uxcontent.com/feed/"
+      htmlUrl="https://uxcontent.com"
+      description="Online Certifications in Content Design and UX Writing"
+    />
+
+    <outline
+      text="Comments on: UX Notebook Newsletter &amp;#8211; Sign Up"
+      title="Comments on: UX Notebook Newsletter &amp;#8211; Sign Up"
+      type="rss"
+      xmlUrl="https://www.sarahdoody.com/ux-notebook-newsletter/feed/"
+      htmlUrl="https://www.sarahdoody.com/ux-notebook-newsletter/"
+      description=""
+    />
+
+    <outline
+      text="UX Collective"
+      title="UX Collective"
+      type="rss"
+      xmlUrl="https://newsletter.uxdesign.cc/feed"
+      htmlUrl="https://newsletter.uxdesign.cc"
+      description=""
+    />
+
+    <outline
+      text="UX Design Weekly"
+      title="UX Design Weekly"
+      type="rss"
+      xmlUrl="https://uxdesignweekly.com/feed/"
+      htmlUrl="https://uxdesignweekly.com"
+      description="Subscribe to a hand picked round up of the best user experience links every week. Curated by Kenny Chen."
+    />
+
+    <outline
+      text="The UX Research and Design Blog by Stéphanie Walter."
+      title="The UX Research and Design Blog by Stéphanie Walter."
+      type="rss"
+      xmlUrl="https://stephaniewalter.design/blog/feed/"
+      htmlUrl="https://stephaniewalter.design/blog/"
+      description="My practical expert insights and curated content (resources, tools, etc.) on UX research, inclusive design, enterprise UX, accessibility, and more, to help you growth as a designer."
+    />
+
+    <outline
+      text="HeyDesigner"
+      title="HeyDesigner"
+      type="rss"
+      xmlUrl="https://heydesigner.com/rss.xml"
+      htmlUrl="https://heydesigner.com/"
+      description="HeyDesigner is the go-to newsletter for product people, UXers, PMs and design engineers."
+    />
+
+    <outline
+      text="Encore Updates"
+      title="Encore Updates"
+      type="rss"
+      xmlUrl="https://encore.dev/rss/feed.xml"
+      htmlUrl="https://encore.dev"
+      description=""
+    />
+
+    <outline
+      text="The Pudding"
+      title="The Pudding"
+      type="rss"
+      xmlUrl="https://pudding.cool/rss.xml"
+      htmlUrl="https://pudding.cool"
+      description="The Pudding is an editorial publication that explains ideas debated in culture with visual essays."
+    />
+
+    <outline
+      text="samwho.dev"
+      title="samwho.dev"
+      type="rss"
+      xmlUrl="https://samwho.dev/rss.xml"
+      htmlUrl="https://samwho.dev/rss.xml"
+      description=""
+    />
+
+    <outline
+      text="Maggie Appleton"
+      title="Maggie Appleton"
+      type="rss"
+      xmlUrl="https://maggieappleton.com/rss.xml"
+      htmlUrl="https://maggieappleton.com/"
+      description="Essays on programming, design, and anthropology"
+    />
+
+    <outline
+      text="Design &amp;amp; Tech Weekly"
+      title="Design &amp;amp; Tech Weekly"
+      type="rss"
+      xmlUrl="https://designtechweekly.com/feed"
+      htmlUrl="https://designtechweekly.com"
+      description="An often riveting list of design and tech resources! Stuff around general design, technology and confluence of those two."
+    />
+
+    <outline
+      text="Shubham Jain&amp;apos;s Blog"
+      title="Shubham Jain&amp;apos;s Blog"
+      type="rss"
+      xmlUrl="https://shubhamjain.co/rss.xml"
+      htmlUrl="https://shubhamjain.co/"
+      description="Opinions on tech and other stuff!"
+    />
+
+    <outline
+      text="Infrequently Noted"
+      title="Infrequently Noted"
+      type="rss"
+      xmlUrl="https://infrequently.org/feed/"
+      htmlUrl="https://infrequently.org"
+      description=""
+    />
+
+    <outline
+      text="Amelia Wattenberger"
+      title="Amelia Wattenberger"
+      type="rss"
+      xmlUrl="https://2019.wattenberger.com/rss"
+      htmlUrl="https://wattenberger.com"
+      description="Thoughts on data visualization, d3.js, frontend development, and design."
+    />
+
+    <outline
+      text="Echo JS"
+      title="Echo JS"
+      type="rss"
+      xmlUrl="https://www.echojs.com/rss"
+      htmlUrl="http://www.echojs.com"
+      description="Description pending"
+    />
+
+    <outline
+      text="MachMetrics Speed Blog"
+      title="MachMetrics Speed Blog"
+      type="rss"
+      xmlUrl="https://www.machmetrics.com/speed-blog/feed/"
+      htmlUrl="https://machmetrics.com/speed-blog/"
+      description="Speed optimization tips for improving the performance of your website"
+    />
+
+    <outline
+      text="Untitled Feed"
+      title="Untitled Feed"
+      type="rss"
+      xmlUrl="https://github.blog/engineering.atom"
+      htmlUrl="https://github.blog/engineering.atom"
+      description=""
+    />
+
+    <outline
+      text="WordPress Hosting News and Updates | WP Engine®"
+      title="WordPress Hosting News and Updates | WP Engine®"
+      type="rss"
+      xmlUrl="https://getflywheel.com/layout/feed/"
+      htmlUrl="https://getflywheel.com/layout"
+      description=""
+    />
+
+    <outline
+      text="DebugBear Blog"
+      title="DebugBear Blog"
+      type="rss"
+      xmlUrl="https://www.debugbear.com/blog/feed/rss"
+      htmlUrl="https://www.debugbear.com/blog"
+      description="DebugBear Blog"
+    />
+
+    <outline
+      text="Cloud Four"
+      title="Cloud Four"
+      type="rss"
+      xmlUrl="https://cloudfour.com/feed/"
+      htmlUrl="https://cloudfour.com"
+      description="Responsive web design and development, progressive web apps"
+    />
+
+    <outline
+      text="Untitled Feed"
+      title="Untitled Feed"
+      type="rss"
+      xmlUrl="https://calibreapp.com/blog/rss.xml"
+      htmlUrl="https://calibreapp.com"
+      description=""
+    />
+
+    <outline
+      text="Axess Lab"
+      title="Axess Lab"
+      type="rss"
+      xmlUrl="https://axesslab.com/feed/"
+      htmlUrl="https://axesslab.com"
+      description="Digital accessibility consultants, audit your website or app"
+    />
+
+    <outline
+      text="Untitled Feed"
+      title="Untitled Feed"
+      type="rss"
+      xmlUrl="https://reactjs.org/feed.xml"
+      htmlUrl="https://reactjs.org"
+      description=""
+    />
+
+    <outline
+      text="Untitled Feed"
+      title="Untitled Feed"
+      type="rss"
+      xmlUrl="https://inclusive-components.design/rss/"
+      htmlUrl="https://inclusive-components.design/"
+      description=""
+    />
+
+    <outline
+      text="WebAIM Blog"
+      title="WebAIM Blog"
+      type="rss"
+      xmlUrl="https://webaim.org/blog/feed"
+      htmlUrl="https://webaim.org/blog"
+      description="The WebAIM Web Accessibility Blog"
+    />
+
+    <outline
+      text="web.dev: Blog"
+      title="web.dev: Blog"
+      type="rss"
+      xmlUrl="https://web.dev/blog/feed.xml"
+      htmlUrl="https://web.dev/blog/"
+      description="All of web.dev's blog posts."
+    />
+
+    <outline
+      text="developer.chrome.com: Blog"
+      title="developer.chrome.com: Blog"
+      type="rss"
+      xmlUrl="https://developer.chrome.com/static/blog/feed.xml"
+      htmlUrl="https://developer.chrome.com/blog/"
+      description="All of developer.chrome.com articles."
+    />
+
+    <outline
+      text="Zell Liew"
+      title="Zell Liew"
+      type="rss"
+      xmlUrl="https://zellwk.com/rss.xml"
+      htmlUrl="https://zellwk.com/"
+      description="This is where I share the things I know and learned about Web Development and Web Design."
+    />
+
+    <outline
+      text="Mozilla Hacks &amp;#8211; the Web developer blog"
+      title="Mozilla Hacks &amp;#8211; the Web developer blog"
+      type="rss"
+      xmlUrl="https://hacks.mozilla.org/feed/"
+      htmlUrl="https://hacks.mozilla.org/"
+      description="hacks.mozilla.org"
+    />
+
+    <outline
+      text="Mozilla Accessibility"
+      title="Mozilla Accessibility"
+      type="rss"
+      xmlUrl="https://blog.mozilla.org/accessibility/feed/"
+      htmlUrl="https://blog.mozilla.org/accessibility/"
+      description="Users first, no matter their abilities"
+    />
+
+    <outline
+      text="Freedom Scientific Blog"
+      title="Freedom Scientific Blog"
+      type="rss"
+      xmlUrl="https://blog.freedomscientific.com/feed/"
+      htmlUrl="https://blog.freedomscientific.com"
+      description="News from the cutting edge of assistive technology"
+    />
+
+    <outline
+      text="Spread Privacy"
+      title="Spread Privacy"
+      type="rss"
+      xmlUrl="https://spreadprivacy.com/rss/"
+      htmlUrl="https://spreadprivacy.com/"
+      description=""
+    />
+
+    <outline
+      text="The AMP Blog"
+      title="The AMP Blog"
+      type="rss"
+      xmlUrl="https://blog.amp.dev/feed/"
+      htmlUrl="https://blog.amp.dev"
+      description="News and announcements from the AMP team"
+    />
+
+    <outline
+      text="Untitled Feed"
+      title="Untitled Feed"
+      type="rss"
+      xmlUrl="https://hackernoon.com/tagged/frontend/feed"
+      htmlUrl="https://hackernoon.com/tagged/frontend"
+      description=""
+    />
+
+    <outline
+      text="Untitled Feed"
+      title="Untitled Feed"
+      type="rss"
+      xmlUrl="https://hackernoon.com/tagged/css/feed"
+      htmlUrl="https://hackernoon.com/tagged/css"
+      description=""
+    />
+
+    <outline
+      text="Ariel Salminen"
+      title="Ariel Salminen"
+      type="rss"
+      xmlUrl="https://viljamis.com/atom.xml"
+      htmlUrl="https://viljamis.com/atom.xml"
+      description=""
+    />
+
+    <outline
+      text="TheCodeBarbarian.com"
+      title="TheCodeBarbarian.com"
+      type="rss"
+      xmlUrl="https://thecodebarbarian.com/feed.xml"
+      htmlUrl="http://thecodebarbarian.com"
+      description="Detailed articles about the MEAN stack and related topics"
+    />
+
+    <outline
+      text="Trys Mudford's Blog"
+      title="Trys Mudford's Blog"
+      type="rss"
+      xmlUrl="https://www.trysmudford.com/blog/index.xml"
+      htmlUrl="https://www.trysmudford.com/blog/"
+      description="Posts, thoughts, links and photos from Trys"
+    />
+
+    <outline
+      text="Untitled Feed"
+      title="Untitled Feed"
+      type="rss"
+      xmlUrl="https://www.taniarascia.com/rss.xml"
+      htmlUrl="https://tania.dev"
+      description=""
+    />
+
+    <outline
+      text="Tan Li Hau's Blog"
+      title="Tan Li Hau's Blog"
+      type="rss"
+      xmlUrl="https://lihautan.com/rss.xml"
+      htmlUrl="https://lihautan.com/"
+      description="Frontend Developer at Shopee Singapore"
+    />
+
+    <outline
+      text="Stuart Robson, Front-End Developer and Design Systems Consultant"
+      title="Stuart Robson, Front-End Developer and Design Systems Consultant"
+      type="rss"
+      xmlUrl="https://alwaystwisted.com/rss.php"
+      htmlUrl="https://alwaystwisted.com/rss.php"
+      description=""
+    />
+
+    <outline
+      text="Stéphanie Walter &amp;#8211; Senior UX Designer, Mobile Expert, Conference Speaker, Blog writer and Teacher."
+      title="Stéphanie Walter &amp;#8211; Senior UX Designer, Mobile Expert, Conference Speaker, Blog writer and Teacher."
+      type="rss"
+      xmlUrl="https://stephaniewalter.design/feed/"
+      htmlUrl="https://stephaniewalter.design/"
+      description="My practical expert insights and curated content (resources, tools, etc.) on UX research, inclusive design, enterprise UX, accessibility, and more, to help you growth as a designer."
+    />
+
+    <outline
+      text="The Web Witch&amp;#39;s Blog"
+      title="The Web Witch&amp;#39;s Blog"
+      type="rss"
+      xmlUrl="https://blog.stephaniestimac.com/feed/feed.xml"
+      htmlUrl="https://blog.stephaniestimac.com"
+      description=""
+    />
+
+    <outline
+      text="Stefan Judis Web Development"
+      title="Stefan Judis Web Development"
+      type="rss"
+      xmlUrl="https://www.stefanjudis.com/rss.xml"
+      htmlUrl="https://www.stefanjudis.com/rss.xml"
+      description=""
+    />
+
+    <outline
+      text="Modern CSS Solutions"
+      title="Modern CSS Solutions"
+      type="rss"
+      xmlUrl="https://moderncss.dev/feed/"
+      htmlUrl="https://moderncss.dev"
+      description=""
+    />
+
+    <outline
+      text="Untitled Feed"
+      title="Untitled Feed"
+      type="rss"
+      xmlUrl="https://www.swyx.io/rss.xml"
+      htmlUrl="https://www.swyx.io"
+      description=""
+    />
+
+    <outline
+      text="Untitled Feed"
+      title="Untitled Feed"
+      type="rss"
+      xmlUrl="https://www.scottohara.me/feed.xml"
+      htmlUrl="https://www.scottohara.me"
+      description=""
+    />
+
+    <outline
+      text="Sarah Fossheim's Blog"
+      title="Sarah Fossheim's Blog"
+      type="rss"
+      xmlUrl="https://fossheim.io/feed.xml"
+      htmlUrl="https://fossheim.io"
+      description=""
+    />
+
+    <outline
+      text="Untitled Feed"
+      title="Untitled Feed"
+      type="rss"
+      xmlUrl="https://www.robinwieruch.de/index.xml"
+      htmlUrl="https://www.robinwieruch.de"
+      description=""
+    />
+
+    <outline
+      text="Robin Osborne"
+      title="Robin Osborne"
+      type="rss"
+      xmlUrl="https://www.robinosborne.co.uk/feed/"
+      htmlUrl="https://www.robinosborne.co.uk"
+      description="Always learning more about Performance, Observability, DevOps, and Tech Leadership"
+    />
+
+    <outline
+      text="Robert&amp;#039;s talk"
+      title="Robert&amp;#039;s talk"
+      type="rss"
+      xmlUrl="https://feeds.feedburner.com/robertnyman"
+      htmlUrl="https://robertnyman.com"
+      description="Web development and Internet trends"
+    />
+
+    <outline
+      text="HTML + CSS + JavaScript"
+      title="HTML + CSS + JavaScript"
+      type="rss"
+      xmlUrl="https://htmlcssjavascript.com/feed/"
+      htmlUrl="https://htmlcssjavascript.com"
+      description="Let&amp;#039;s Build the Web We Want"
+    />
+
+    <outline
+      text="raganwald.com"
+      title="raganwald.com"
+      type="rss"
+      xmlUrl="https://raganwald.com/atom.xml"
+      htmlUrl="https://raganwald.com/atom.xml"
+      description=""
+    />
+
+    <outline
+      text="Raymond Camden"
+      title="Raymond Camden"
+      type="rss"
+      xmlUrl="https://www.raymondcamden.com/feed.xml"
+      htmlUrl="https://www.raymondcamden.com"
+      description=""
+    />
+
+    <outline
+      text="DigitalA11Y"
+      title="DigitalA11Y"
+      type="rss"
+      xmlUrl="https://www.digitala11y.com/feed/"
+      htmlUrl="https://www.digitala11y.com"
+      description="Your Accessibility Partner"
+    />
+
+    <outline
+      text="Phil Nash"
+      title="Phil Nash"
+      type="rss"
+      xmlUrl="https://philna.sh/feed.xml"
+      htmlUrl="https://philna.sh/"
+      description="Phil Nash is a developer, speaker, blogger, developer advocate, sausage dog owner and beer lover."
+    />
+
+    <outline
+      text="Modern Web Development with Chrome"
+      title="Modern Web Development with Chrome"
+      type="rss"
+      xmlUrl="https://paul.kinlan.me/index.xml"
+      htmlUrl="https://paul.kinlan.me/"
+      description="Recent content on Modern Web Development with Chrome"
+    />
+
+    <outline
+      text="Untitled Feed"
+      title="Untitled Feed"
+      type="rss"
+      xmlUrl="https://typeofnan.dev/rss.xml"
+      htmlUrl="https://typeofnan.dev"
+      description=""
+    />
+
+    <outline
+      text="Untitled Feed"
+      title="Untitled Feed"
+      type="rss"
+      xmlUrl="https://mike.sherov.com/rss.xml"
+      htmlUrl="https://mike.sherov.com/"
+      description=""
+    />
+
+    <outline
+      text="MadeByMike"
+      title="MadeByMike"
+      type="rss"
+      xmlUrl="https://www.madebymike.com.au/feed.xml"
+      htmlUrl="https://www.madebymike.com.au"
+      description=""
+    />
+
+    <outline
+      text="CSS In Real Life"
+      title="CSS In Real Life"
+      type="rss"
+      xmlUrl="https://css-irl.info/rss.xml"
+      htmlUrl="https://css-irl.info/rss.xml"
+      description=""
+    />
+
+    <outline
+      text="justmarkup"
+      title="justmarkup"
+      type="rss"
+      xmlUrl="https://justmarkup.com/feed/feed.xml"
+      htmlUrl="https://justmarkup.com/log"
+      description="&amp;lt;p&amp;gt;Thirteen years ago I published my first article on this site, and it&amp;#39;s still alive (is it?).&amp;lt;/p&amp;gt;
+&amp;lt;h2 id=&amp;quot;this-site&amp;quot;&amp;gt;This site &amp;lt;a class=&amp;quot;permalink&amp;quot; href=&amp;quot;#this-site&amp;quot;&amp;gt;#&amp;lt;/a&amp;gt;&amp;lt;/h2&amp;gt;
+&amp;lt;p&amp;gt;I&amp;#39;ve only posted once in the past year, and that&amp;#39;s perfectly fine. I could list all the reasons for my irregular posting schedule, but honestly, it boils down to time and motivation. The best part is that I still have this space online to publish whatever I want, whenever I want.&amp;lt;/p&amp;gt;
+&amp;lt;h2 id=&amp;quot;social&amp;quot;&amp;gt;Social &amp;lt;a class=&amp;quot;permalink&amp;quot; href=&amp;quot;#social&amp;quot;&amp;gt;#&amp;lt;/a&amp;gt;&amp;lt;/h2&amp;gt;
+&amp;lt;p&amp;gt;I&amp;#39;m not very active on social media these days. I occasionally check Mastodon and LinkedIn, but that&amp;#39;s about it. I rely on RSS to stay informed—it just works.&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;Since the end of last year, my family and I have had a small garden with a dacha (a &amp;amp;quot;Schrebergarten&amp;amp;quot;). I&amp;#39;m currently renovating it, and I&amp;#39;m really enjoying the hands-on work. I&amp;#39;m also looking forward to growing vegetables and simply spending time in the garden.&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;That&amp;#39;s my yearly update. Stay safe, and keep being awesome!&amp;lt;/p&amp;gt;"
+    />
+
+    <outline
+      text="Untitled Feed"
+      title="Untitled Feed"
+      type="rss"
+      xmlUrl="https://betterwebtype.com/feed.xml"
+      htmlUrl="https://betterwebtype.com"
+      description=""
+    />
+
+    <outline
+      text="Marko Saric"
+      title="Marko Saric"
+      type="rss"
+      xmlUrl="https://markosaric.com/feed/"
+      htmlUrl="https://markosaric.com"
+      description=""
+    />
+
+    <outline
+      text="Mark&amp;#39;s Dev Blog"
+      title="Mark&amp;#39;s Dev Blog"
+      type="rss"
+      xmlUrl="https://blog.isquaredsoftware.com/index.xml"
+      htmlUrl="https://blog.isquaredsoftware.com/index.xml"
+      description="Recent content on Mark&amp;#39;s Dev Blog"
+    />
+
+    <outline
+      text="Marius Schulz"
+      title="Marius Schulz"
+      type="rss"
+      xmlUrl="https://feeds.feedburner.com/mariusschulz"
+      htmlUrl="https:/"
+      description=""
+    />
+
+    <outline
+      text="Mike Taylr Dot Com Web Log"
+      title="Mike Taylr Dot Com Web Log"
+      type="rss"
+      xmlUrl="https://miketaylr.com/posts/rss.xml"
+      htmlUrl="https://miketaylr.com/posts"
+      description="Erotic web browser fan-fiction."
+    />
+
+    <outline
+      text="marcus.io"
+      title="marcus.io"
+      type="rss"
+      xmlUrl="https://marcus.io/feed"
+      htmlUrl="https://marcus.io/blog"
+      description="The latest articles"
+    />
+
+    <outline
+      text="Manuel Matuzović - Blog"
+      title="Manuel Matuzović - Blog"
+      type="rss"
+      xmlUrl="https://www.matuzo.at/feed.xml"
+      htmlUrl="https://www.matuzo.at"
+      description=""
+    />
+
+    <outline
+      text="Impressive Webs"
+      title="Impressive Webs"
+      type="rss"
+      xmlUrl="https://www.impressivewebs.com/feed"
+      htmlUrl="https://www.impressivewebs.com/"
+      description="Articles on Front-end Web Development"
+    />
+
+    <outline
+      text="Untitled Feed"
+      title="Untitled Feed"
+      type="rss"
+      xmlUrl="https://www.a11ywithlindsey.com/rss.xml"
+      htmlUrl="https://www.a11ywithlindsey.com"
+      description=""
+    />
+
+    <outline
+      text="Krasimir Tsonev - blog"
+      title="Krasimir Tsonev - blog"
+      type="rss"
+      xmlUrl="https://krasimirtsonev.com/blog/rss"
+      htmlUrl="http://krasimirtsonev.com/blog"
+      description="Blog for web development"
+    />
+
+    <outline
+      text="Kilian Valkhof"
+      title="Kilian Valkhof"
+      type="rss"
+      xmlUrl="https://kilianvalkhof.com/feed/"
+      htmlUrl="https://kilianvalkhof.com"
+      description="Front-end &amp;#38; user experience developer"
+    />
+
+    <outline
+      text="Jonnie Hallman (@destroytoday)"
+      title="Jonnie Hallman (@destroytoday)"
+      type="rss"
+      xmlUrl="https://destroytoday.com/feeds/all"
+      htmlUrl="https://destroytoday.com/feeds/all"
+      description="A designer and developer based in Brooklyn"
+    />
+
+    <outline
+      text="A job queue in two lines of JS"
+      title="A job queue in two lines of JS"
+      type="rss"
+      xmlUrl="https://jameshfisher.com/feed.xml"
+      htmlUrl="https://jameshfisher.com"
+      description=""
+    />
+
+    <outline
+      text="Perishable Press"
+      title="Perishable Press"
+      type="rss"
+      xmlUrl="https://feeds.feedburner.com/perishablepress"
+      htmlUrl="https://perishablepress.com"
+      description="Web Dev + WordPress + Security"
+    />
+
+    <outline
+      text="James Sinclair"
+      title="James Sinclair"
+      type="rss"
+      xmlUrl="https://jrsinclair.com/index.rss"
+      htmlUrl="https://jrsinclair.com/"
+      description="The enchanted electrical website of Dr. Sinclair"
+    />
+
+    <outline
+      text="Jack Franklin"
+      title="Jack Franklin"
+      type="rss"
+      xmlUrl="https://www.jackfranklin.co.uk/feed.xml"
+      htmlUrl="https://www.jackfranklin.co.uk"
+      description=""
+    />
+
+    <outline
+      text="bitsofcode"
+      title="bitsofcode"
+      type="rss"
+      xmlUrl="https://bitsofco.de/rss/"
+      htmlUrl="https://bitsofco.de/rss/"
+      description=""
+    />
+
+    <outline
+      text="Hussein Al Hammad"
+      title="Hussein Al Hammad"
+      type="rss"
+      xmlUrl="https://hussein-alhammad.com/blog/rss.xml"
+      htmlUrl="https://hussein-alhammad.com/blog"
+      description="Personal blog of Hussein Al Hammad"
+    />
+
+    <outline
+      text="foobartel.com :: Stream"
+      title="foobartel.com :: Stream"
+      type="rss"
+      xmlUrl="https://foobartel.com/stream/feed"
+      htmlUrl="https://foobartel.com"
+      description="All entries from foobartel.com"
+    />
+
+    <outline
+      text="HeydonWorks"
+      title="HeydonWorks"
+      type="rss"
+      xmlUrl="https://heydonworks.com/feed.xml"
+      htmlUrl="https://heydonworks.com"
+      description="Writing and creative coding from Heydon Pickering"
+    />
+
+    <outline
+      text="Harry Wolff"
+      title="Harry Wolff"
+      type="rss"
+      xmlUrl="https://hswolff.com/rss.xml"
+      htmlUrl="https://hswolff.com/"
+      description="Personal site of Harry Wolff (hswolff). Find articles on JavaScript, videos about code, and stories of my life."
+    />
+
+    <outline
+      text="Harry Cresswell - Writing"
+      title="Harry Cresswell - Writing"
+      type="rss"
+      xmlUrl="https://harrycresswell.com/articles/feed.xml"
+      htmlUrl="https://harrycresswell.com/writing/"
+      description="Harry Cresswell – Writing"
+    />
+
+    <outline
+      text="Geoff Graham"
+      title="Geoff Graham"
+      type="rss"
+      xmlUrl="https://geoffgraham.me/feed/"
+      htmlUrl="https://geoffgraham.me"
+      description="I design. I develop. I do lots of things in between."
+    />
+
+    <outline
+      text="Writing JavaScript"
+      title="Writing JavaScript"
+      type="rss"
+      xmlUrl="https://writingjavascript.com/rss.xml"
+      htmlUrl="https://writingjavascript.com"
+      description="A blog about writing JavaScript/ECMAScript and programming as close to the standards as possible."
+    />
+
+    <outline
+      text="Erik Runyon"
+      title="Erik Runyon"
+      type="rss"
+      xmlUrl="https://erikrunyon.com/feed.xml"
+      htmlUrl="https://erikrunyon.com/"
+      description="Home of Erik Runyon. Technical Director for the University of Notre Dame Web Team."
+    />
+
+    <outline
+      text="Tech &amp;#8211; Thoughts From Eric"
+      title="Tech &amp;#8211; Thoughts From Eric"
+      type="rss"
+      xmlUrl="https://meyerweb.com/eric/thoughts/category/tech/rss2/full/"
+      htmlUrl="https://meyerweb.com/eric/thoughts"
+      description="Things that Eric A. Meyer, CSS expert, writes about on his personal Web site; it&amp;#039;s largely Web standards and Web technology, but also various bits of culture, politics, personal observations, and other miscellaneous stuff"
+    />
+
+    <outline
+      text="text/plain"
+      title="text/plain"
+      type="rss"
+      xmlUrl="https://textslashplain.com/feed/"
+      htmlUrl="https://textslashplain.com"
+      description="ericlaw talks about security, the web, and software in general"
+    />
+
+    <outline
+      text="Untitled Feed"
+      title="Untitled Feed"
+      type="rss"
+      xmlUrl="https://dutzi.party/rss.xml"
+      htmlUrl="https://dutzi.github.io"
+      description=""
+    />
+
+    <outline
+      text="Dmitri Pavlutin Blog"
+      title="Dmitri Pavlutin Blog"
+      type="rss"
+      xmlUrl="https://dmitripavlutin.com/rss.xml"
+      htmlUrl="https://dmitripavlutin.com"
+      description=""
+    />
+
+    <outline
+      text="dbushell.com (blog)"
+      title="dbushell.com (blog)"
+      type="rss"
+      xmlUrl="https://dbushell.com/rss.xml"
+      htmlUrl="https://dbushell.com/blog/"
+      description="David Bushell’s Blog only feed"
+    />
+
+    <outline
+      text="Untitled Feed"
+      title="Untitled Feed"
+      type="rss"
+      xmlUrl="https://daveceddia.com/feed.xml"
+      htmlUrl="https://daveceddia.com"
+      description=""
+    />
+
+    <outline
+      text="Darek Kay"
+      title="Darek Kay"
+      type="rss"
+      xmlUrl="https://darekkay.com/atom.xml"
+      htmlUrl="https://darekkay.com/atom.xml"
+      description=""
+    />
+
+    <outline
+      text="Website and blog of Front-end developer and web designer, Dan Davies"
+      title="Website and blog of Front-end developer and web designer, Dan Davies"
+      type="rss"
+      xmlUrl="https://www.dan-davies.co.uk/feed"
+      htmlUrl="https://www.dan-davies.co.uk"
+      description="My name is Dan Davies, an experienced and highly skilled web designer and front-end developer from Flintshire, North Wales and currently working in his dining room.  Specialising in Web Design, WordPress, HTML, CSS3 and Sass, I build responsive websites that incorporate modern, clean code and am a big advocate of the content first approach. I have worked for some large digital agencies and with some very well known brands."
+    />
+
+    <outline
+      text="Untitled Feed"
+      title="Untitled Feed"
+      type="rss"
+      xmlUrl="https://catalin.red/feed"
+      htmlUrl="https://catalin.red"
+      description=""
+    />
+
+    <outline
+      text="Bryan Robinson&amp;apos;s Blog"
+      title="Bryan Robinson&amp;apos;s Blog"
+      type="rss"
+      xmlUrl="https://bryanlrobinson.com/feed.xml"
+      htmlUrl="https://bryanlrobinson.com/"
+      description="Hello, World! I&amp;apos;m a designer and developer with over a decade of experience building experiences and leading teams on the web. I write and record about HTML, CSS, the power of static sites and good, clean design."
+    />
+
+    <outline
+      text="Bruce Lawson&amp;#039;s  personal site"
+      title="Bruce Lawson&amp;#039;s  personal site"
+      type="rss"
+      xmlUrl="https://www.brucelawson.co.uk/feed/"
+      htmlUrl="https://brucelawson.co.uk"
+      description="loveliness"
+    />
+
+    <outline
+      text="Untitled Feed"
+      title="Untitled Feed"
+      type="rss"
+      xmlUrl="https://remotesynthesis.com/feed.xml"
+      htmlUrl="https://remotesynthesis.com/"
+      description=""
+    />
+
+    <outline
+      text="Ben Myers"
+      title="Ben Myers"
+      type="rss"
+      xmlUrl="https://blog.benmyers.dev/feed.xml"
+      htmlUrl="https://blog.benmyers.dev"
+      description=""
+    />
+
+    <outline
+      text="Herding Lions"
+      title="Herding Lions"
+      type="rss"
+      xmlUrl="https://benmccormick.org/rss/"
+      htmlUrl="https://benmccormick.org/"
+      description="&amp;lt;p&amp;gt;We often talk about computer programs purely as collections of “code”.  Lately I’ve been thinking about it a bit differently: a computer program is the encoding of a huge series of nested decisions, made intentionally or otherwise. &amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;Let’s say we’ve decided to build a calculator app.  That overall goal is the first decision, but there are many more decisions nested underneath it.  &amp;lt;/p&amp;gt;
+&amp;lt;ul&amp;gt;
+&amp;lt;li&amp;gt;What features does our calculator app need? (Just basic arithmetic or are we buliding a graphing calculator?)&amp;lt;/li&amp;gt;
+&amp;lt;li&amp;gt;What platform are we building for? (web, mobile, desktop, VR?)&amp;lt;/li&amp;gt;
+&amp;lt;/ul&amp;gt;
+&amp;lt;p&amp;gt;Once we know generally what we’re trying to do, there’s still a bunch of fundamental decisions to be made before we write any code&amp;lt;/p&amp;gt;
+&amp;lt;ul&amp;gt;
+&amp;lt;li&amp;gt;Is this a client only app or is there a server component?&amp;lt;/li&amp;gt;
+&amp;lt;li&amp;gt;What framework should we use?&amp;lt;/li&amp;gt;
+&amp;lt;li&amp;gt;How will the app be hosted and distributed?&amp;lt;/li&amp;gt;
+&amp;lt;/ul&amp;gt;
+&amp;lt;p&amp;gt;Then once we start actually writing code, we find even more nested decisions.&amp;lt;/p&amp;gt;
+&amp;lt;ul&amp;gt;
+&amp;lt;li&amp;gt;How are we going to structure our files?&amp;lt;/li&amp;gt;
+&amp;lt;li&amp;gt;How will we break functionality up into components, classes and/or functions?&amp;lt;/li&amp;gt;
+&amp;lt;li&amp;gt;Is this a single file, a single app, or some sort of distributed system?&amp;lt;/li&amp;gt;
+&amp;lt;/ul&amp;gt;
+&amp;lt;p&amp;gt;And then even within a given class we nest even more decisions&amp;lt;/p&amp;gt;
+&amp;lt;ul&amp;gt;
+&amp;lt;li&amp;gt;What functionality should the class have?&amp;lt;/li&amp;gt;
+&amp;lt;li&amp;gt;What is the high level logic of each function?&amp;lt;/p&amp;gt;&amp;lt;/li&amp;gt;
+&amp;lt;/ul&amp;gt;
+&amp;lt;p&amp;gt;And then we come down to the lowest level of decisions&amp;lt;/p&amp;gt;
+&amp;lt;ul&amp;gt;
+&amp;lt;li&amp;gt;What syntax will we use for that? (For example: for loops or iterators to run through a list)&amp;lt;/li&amp;gt;
+&amp;lt;li&amp;gt;Will we use a library or write some functionality from scratch?&amp;lt;/li&amp;gt;
+&amp;lt;li&amp;gt;Tabs or spaces?  Single quotes or double quotes?&amp;lt;/li&amp;gt;
+&amp;lt;/ul&amp;gt;
+&amp;lt;p&amp;gt;We can think of these as functional, infrastructure, architecture, logical and syntax level decisions.&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;&amp;lt;img title=&amp;#34;base.png&amp;#34; src=&amp;#34;https://cdn.uploads.micro.blog/92198/2025/27128d4a6e.png&amp;#34; alt=&amp;#34;&amp;#34; width=&amp;#34;487&amp;#34; height=&amp;#34;600&amp;#34; border=&amp;#34;0&amp;#34;&amp;gt;&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;The history of computing has mostly involved changing which of those decisions a software developer needs to make as tools have changed.  Many of those changes have removed the need to make decisions in favor of a generally acceptable standard implementation.  The vast majority of programmers no longer worry about the details of the bytecode or assembly definitions of programs — those have been standardized by higher level languages.  Most modern languages also remove or significantly reduce decision making around memory management, cloud platforms reduce&amp;lt;sup id=&amp;#34;fnref:1&amp;#34;&amp;gt;&amp;lt;a href=&amp;#34;#fn:1&amp;#34; class=&amp;#34;footnote-ref&amp;#34; role=&amp;#34;doc-noteref&amp;#34;&amp;gt;1&amp;lt;/a&amp;gt;&amp;lt;/sup&amp;gt; the decisions many devs need to make around infrastructure for their apps, and API frameworks like Django or Ruby on Rails reduce the decisions somebody needs to make about how to structure their API code.  &amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;Each of these abstractions have allowed developers to focus more on the decisions around what their program should do and less on the implementation details of how it does it.  They’re also all leaky abstractions to varying degrees, and there are times and situations where a developer will need to go without or work around the standard tool to make a different decision.  &amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;Applying this model to think about LLM based coding tools, it’s useful to talk about the use of LLM in terms of what decisions we’re making vs offloading to the coding tool. LLMs are essentially tools for replacing decisions that you might have had to make while generating text with a reasonable standardized option.  However the way we use them can lead to different sets of decisions being made by the tools.&amp;lt;/p&amp;gt;
+&amp;lt;h4&amp;gt;Vibe Coding&amp;lt;/h4&amp;gt;
+&amp;lt;p&amp;gt;Vibe coding, the buzzword of the year in tech, is commonly understood to mean that you’re creating an application solely through prompting and iterating based on the observed output without reading the code.  This is effectively choosing to make decisions at the functional level (and maybe the infra level) and let AI handle the rest.&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;&amp;lt;img title=&amp;#34;vibe-coding.png&amp;#34; src=&amp;#34;https://cdn.uploads.micro.blog/92198/2025/vibe-coding.png&amp;#34; alt=&amp;#34;Vibe coding.&amp;#34; width=&amp;#34;487&amp;#34; height=&amp;#34;600&amp;#34; border=&amp;#34;0&amp;#34;&amp;gt;&amp;lt;/p&amp;gt;
+&amp;lt;h4&amp;gt;Tab Complete&amp;lt;/h4&amp;gt;
+&amp;lt;p&amp;gt;We can contrast this to a tab complete interface like those provided by Github Copilot or Cursor, where an IDE will offer to insert a chunk of code based on context.  Here AI is mostly deciding on syntax, with more ambitious implementations like Cursor possibly moving up to the logical level&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;&amp;lt;img title=&amp;#34;tab-complete.png&amp;#34; src=&amp;#34;https://cdn.uploads.micro.blog/92198/2025/tab-complete.png&amp;#34; alt=&amp;#34;Tab complete.&amp;#34; width=&amp;#34;487&amp;#34; height=&amp;#34;600&amp;#34; border=&amp;#34;0&amp;#34;&amp;gt;&amp;lt;/p&amp;gt;
+&amp;lt;h4&amp;gt;Feature Development With Agents&amp;lt;/h4&amp;gt;
+&amp;lt;p&amp;gt;There’s a lot of room between these 2 extremes.  Tools like Claude code, Cursor and Copilot can take on tasks at a variety of levels depending on how they’re prompted.  You can ask a coding agent to generate a new feature for instance, which might live completely at the logical / syntax level or could end up infringing on architecture if the feature has new architectural considerations or the coding agent introduces a new pattern or dependency.  &amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;&amp;lt;img title=&amp;#34;features.png&amp;#34; src=&amp;#34;https://cdn.uploads.micro.blog/92198/2025/features.png&amp;#34; alt=&amp;#34;&amp;#34; width=&amp;#34;487&amp;#34; height=&amp;#34;600&amp;#34; border=&amp;#34;0&amp;#34;&amp;gt;&amp;lt;/p&amp;gt;
+&amp;lt;h2&amp;gt;Who decides what?&amp;lt;/h2&amp;gt;
+&amp;lt;p&amp;gt;As I’m personally moving back into more of a heavy coding role this month, I find this framework of who is making decisions helpful.  &amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;While building enterprise software at work, I’m ultimately responsible for the quality of all the code I write, so while I find it helpful to move faster by using AI tools to get a rough solution in place, I encode some decisions through the prompts I give and end up reviewing and tweaking everything to make sure what comes out of PRs I open represents my decisions.  I’m also quickly building an intuition for which tasks a coding agent is likely to produce a useful output for that I need to tweak, vs one where I’m unlikely enough to agree with the decisions that its faster to just write it myself&amp;lt;sup id=&amp;#34;fnref:2&amp;#34;&amp;gt;&amp;lt;a href=&amp;#34;#fn:2&amp;#34; class=&amp;#34;footnote-ref&amp;#34; role=&amp;#34;doc-noteref&amp;#34;&amp;gt;2&amp;lt;/a&amp;gt;&amp;lt;/sup&amp;gt;.&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;On the other hand if I want to experiment with something quick and dirty or prototype a concept, the freedom these tools give to ignore every level below the functional one is wonderful (I just don’t want to maintain such a system).  &amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;Working with these tools has reminded me once again that reality has a surprising amount of detail.  There is no magic in the world and decisions are always going to have to be made.  If coding tools help us to go faster by focusing more on the decisions that really matter, I’m excited to see what they help us bulid. &amp;lt;/p&amp;gt;
+&amp;lt;section class=&amp;#34;footnotes&amp;#34; role=&amp;#34;doc-endnotes&amp;#34;&amp;gt;
+&amp;lt;hr&amp;gt;
+&amp;lt;ol&amp;gt;
+&amp;lt;li id=&amp;#34;fn:1&amp;#34; role=&amp;#34;doc-endnote&amp;#34;&amp;gt;
+&amp;lt;p&amp;gt;Ok given the huge ecosystem of choices and configuration in cloud computing its probably more accurate to say that it changes the decisions devs need to make&amp;amp;#160;&amp;lt;a href=&amp;#34;#fnref:1&amp;#34; class=&amp;#34;footnote-backref&amp;#34; role=&amp;#34;doc-backlink&amp;#34;&amp;gt;&amp;amp;#x21a9;&amp;amp;#xfe0e;&amp;lt;/a&amp;gt;&amp;lt;/p&amp;gt;
+&amp;lt;/li&amp;gt;
+&amp;lt;li id=&amp;#34;fn:2&amp;#34; role=&amp;#34;doc-endnote&amp;#34;&amp;gt;
+&amp;lt;p&amp;gt;Given the rapid evolution of the tools of course, this is something that needs to be checked over time.  Claude Sonnet can do things reliably that Chat GPT3.5 would consistently fail on, and the agentic system seems to have a good deal of impact on quality as well.&amp;amp;#160;&amp;lt;a href=&amp;#34;#fnref:2&amp;#34; class=&amp;#34;footnote-backref&amp;#34; role=&amp;#34;doc-backlink&amp;#34;&amp;gt;&amp;amp;#x21a9;&amp;amp;#xfe0e;&amp;lt;/a&amp;gt;&amp;lt;/p&amp;gt;
+&amp;lt;/li&amp;gt;
+&amp;lt;/ol&amp;gt;
+&amp;lt;/section&amp;gt;"
+    />
+
+    <outline
+      text="Ben Frain"
+      title="Ben Frain"
+      type="rss"
+      xmlUrl="https://benfrain.com/feed/"
+      htmlUrl="https://benfrain.com"
+      description="Ben Frain – author and web developer"
+    />
+
+    <outline
+      text="Austin Gil"
+      title="Austin Gil"
+      type="rss"
+      xmlUrl="https://stegosource.com/feed/"
+      htmlUrl="https://austingil.com"
+      description="Riding bikes, writing poetry, righting software"
+    />
+
+    <outline
+      text="Untitled Feed"
+      title="Untitled Feed"
+      type="rss"
+      xmlUrl="https://ashleynolan.co.uk/feed.xml"
+      htmlUrl="https://www.ashleynolan.co.uk/"
+      description=""
+    />
+
+    <outline
+      text="Introducing DeviceAndBrowserInfo.com, a website for browser data and more"
+      title="Introducing DeviceAndBrowserInfo.com, a website for browser data and more"
+      type="rss"
+      xmlUrl="https://antoinevastel.com/feed.xml"
+      htmlUrl="/"
+      description="Antoine Vastel Blog"
+    />
+
+    <outline
+      text="Piccalilli - Everything"
+      title="Piccalilli - Everything"
+      type="rss"
+      xmlUrl="https://piccalil.li/feed.xml"
+      htmlUrl="https://piccalil.li/"
+      description="We are Piccalilli. A publication dedicated to providing high quality educational content to level up your front-end skills."
+    />
+
+    <outline
+      text="Adrian Roselli"
+      title="Adrian Roselli"
+      type="rss"
+      xmlUrl="https://adrianroselli.com/feed"
+      htmlUrl="https://adrianroselli.com"
+      description="Consultant, Writer, Speaker"
+    />
+
+    <outline
+      text="Adam Silver"
+      title="Adam Silver"
+      type="rss"
+      xmlUrl="https://adamsilver.io/atom.xml"
+      htmlUrl="https://adamsilver.io/atom.xml"
+      description=""
+    />
+
+    <outline
+      text="Posts on LINQ to Fail"
+      title="Posts on LINQ to Fail"
+      type="rss"
+      xmlUrl="https://www.aaron-powell.com/posts/index.xml"
+      htmlUrl="https://www.aaron-powell.com/posts/"
+      description="Recent content in Posts on LINQ to Fail"
+    />
+
+    <outline
+      text="Zach Leatherman"
+      title="Zach Leatherman"
+      type="rss"
+      xmlUrl="https://www.zachleat.com/web/feed/"
+      htmlUrl="https://www.zachleat.com/web"
+      description=""
+    />
+
+    <outline
+      text="Trent Walton"
+      title="Trent Walton"
+      type="rss"
+      xmlUrl="https://trentwalton.com/feed.xml"
+      htmlUrl="http://trentwalton.com"
+      description="Trent Walton’s Blog"
+    />
+
+    <outline
+      text="Writing on Web Performance Consulting | TimKadlec.com"
+      title="Writing on Web Performance Consulting | TimKadlec.com"
+      type="rss"
+      xmlUrl="https://timkadlec.com/remembers/atom.xml"
+      htmlUrl="https://timkadlec.com/remembers/"
+      description="Recent posts in Writing on Web Performance Consulting | TimKadlec.com"
+    />
+
+    <outline
+      text="phpied.com"
+      title="phpied.com"
+      type="rss"
+      xmlUrl="https://www.phpied.com/feed/"
+      htmlUrl="https://www.phpied.com"
+      description="Stoyan&amp;#039;s blog"
+    />
+
+    <outline
+      text="Sara Soueidan — UI developer"
+      title="Sara Soueidan — UI developer"
+      type="rss"
+      xmlUrl="https://www.sarasoueidan.com/blog/index.xml"
+      htmlUrl="https://www.sarasoueidan.com/blog/index.xml"
+      description=""
+    />
+
+    <outline
+      text="remy sharp's b:log"
+      title="remy sharp's b:log"
+      type="rss"
+      xmlUrl="https://remysharp.com/feed.xml"
+      htmlUrl="https://remysharp.com"
+      description="About [code] and all that jazz"
+    />
+
+    <outline
+      text="Rachel Andrew"
+      title="Rachel Andrew"
+      type="rss"
+      xmlUrl="https://rachelandrew.co.uk/archives/rss.php"
+      htmlUrl="https://rachelandrew.co.uk"
+      description="Doing stuff on the web since 1996."
+    />
+
+    <outline
+      text="Philip Walton"
+      title="Philip Walton"
+      type="rss"
+      xmlUrl="https://feeds.feedburner.com/philipwalton"
+      htmlUrl="https:/"
+      description=""
+    />
+
+    <outline
+      text="QuirksBlog"
+      title="QuirksBlog"
+      type="rss"
+      xmlUrl="https://www.quirksmode.org/blog/atom.xml"
+      htmlUrl="https://www.quirksmode.org/blog/atom.xml"
+      description=""
+    />
+
+    <outline
+      text="A persona-based approach to AI-assisted software development"
+      title="A persona-based approach to AI-assisted software development"
+      type="rss"
+      xmlUrl="https://humanwhocodes.com/feeds/blog.xml"
+      htmlUrl="https://humanwhocodes.com"
+      description="The Official Web Site of Nicholas C. Zakas"
+    />
+
+    <outline
+      text="Mathias Bynens"
+      title="Mathias Bynens"
+      type="rss"
+      xmlUrl="https://mathiasbynens.be/notes.atom"
+      htmlUrl="https://mathiasbynens.be/notes.atom"
+      description=""
+    />
+
+    <outline
+      text="Lea Verou’s blog"
+      title="Lea Verou’s blog"
+      type="rss"
+      xmlUrl="https://lea.verou.me/feed/"
+      htmlUrl="https://lea.verou.me"
+      description=""
+    />
+
+    <outline
+      text="Adactio: Articles"
+      title="Adactio: Articles"
+      type="rss"
+      xmlUrl="https://adactio.com/articles/rss"
+      htmlUrl="https://adactio.com/articles/"
+      description="Longer thoughts and ramblings from Jeremy Keith, an Irish web developer living and working in Brighton, England."
+    />
+
+    <outline
+      text="Jens Oliver Meiert · Web Development × Engineering Management × Philosophy"
+      title="Jens Oliver Meiert · Web Development × Engineering Management × Philosophy"
+      type="rss"
+      xmlUrl="https://meiert.com/en/feed/"
+      htmlUrl="https://meiert.com/"
+      description="I’m Jens Oliver Meiert, and I’m a web developer, manager, and author. I invest in the craft of frontend development, write tech and non-tech books, and love trying things out. Follow my work on meiert.com."
+    />
+
+    <outline
+      text="Untitled Feed"
+      title="Untitled Feed"
+      type="rss"
+      xmlUrl="https://2ality.com/feeds/posts.atom"
+      htmlUrl="https://2ality.com"
+      description=""
+    />
+
+    <outline
+      text="Jake Archibald's blog"
+      title="Jake Archibald's blog"
+      type="rss"
+      xmlUrl="https://jakearchibald.com/posts.rss"
+      htmlUrl="https://jakearchibald.com/posts.rss"
+      description=""
+    />
+
+    <outline
+      text="CSS Wizardry"
+      title="CSS Wizardry"
+      type="rss"
+      xmlUrl="https://feeds.feedburner.com/csswizardry"
+      htmlUrl="https://csswizardry.com/"
+      description="– Web Performance and Site Speed Consultant"
+    />
+
+    <outline
+      text="My journal — Ethan Marcotte’s website"
+      title="My journal — Ethan Marcotte’s website"
+      type="rss"
+      xmlUrl="https://ethanmarcotte.com/wrote/feed.xml"
+      htmlUrl="https://ethanmarcotte.com/wrote"
+      description=""
+    />
+
+    <outline
+      text="Untitled Feed"
+      title="Untitled Feed"
+      type="rss"
+      xmlUrl="https://davidwalsh.name/feed/atom"
+      htmlUrl="https://davidwalsh.name"
+      description=""
+    />
+
+    <outline
+      text="Untitled Feed"
+      title="Untitled Feed"
+      type="rss"
+      xmlUrl="https://davidflanagan.com/feed.xml"
+      htmlUrl="https://davidflanagan.com"
+      description=""
+    />
+
+    <outline
+      text="daverupert.com"
+      title="daverupert.com"
+      type="rss"
+      xmlUrl="https://daverupert.com/atom.xml"
+      htmlUrl="https://daverupert.com"
+      description="The personal blog of Dave Rupert, web developer and podcaster from Austin, TX."
+    />
+
+    <outline
+      text="Christian Heilmann"
+      title="Christian Heilmann"
+      type="rss"
+      xmlUrl="https://christianheilmann.com/feed/"
+      htmlUrl="https://christianheilmann.com"
+      description="For a better web with more professional jobs - can talk, will travel"
+    />
+
+    <outline
+      text="AddyOsmani.com"
+      title="AddyOsmani.com"
+      type="rss"
+      xmlUrl="https://addyosmani.com/rss.xml"
+      htmlUrl="https://addyosmani.com"
+      description="Addy Osmani is a Software Engineer at Google working on Chrome and AI."
+    />
+
+    <outline
+      text="WebGL Fundamentals"
+      title="WebGL Fundamentals"
+      type="rss"
+      xmlUrl="https://webglfundamentals.org/atom.xml"
+      htmlUrl="https://webglfundamentals.org/atom.xml"
+      description=""
+    />
+
+    <outline
+      text="Web Designer Depot"
+      title="Web Designer Depot"
+      type="rss"
+      xmlUrl="https://www.webdesignerdepot.com/feed/"
+      htmlUrl="https://webdesignerdepot.com"
+      description="Web Design Blog"
+    />
+
+    <outline
+      text="Web Performance Calendar"
+      title="Web Performance Calendar"
+      type="rss"
+      xmlUrl="https://calendar.perfplanet.com/feed/"
+      htmlUrl="https://calendar.perfplanet.com"
+      description="The speed geek&amp;#039;s favorite time of year"
+    />
+
+    <outline
+      text="Treehouse Blog"
+      title="Treehouse Blog"
+      type="rss"
+      xmlUrl="https://blog.teamtreehouse.com/feed"
+      htmlUrl="https://blog.teamtreehouse.com/"
+      description="Learn programming, design, and more—all online and on your own time."
+    />
+
+    <outline
+      text="Love2Dev: The Progressive Web App &amp;amp; SEO Experts"
+      title="Love2Dev: The Progressive Web App &amp;amp; SEO Experts"
+      type="rss"
+      xmlUrl="https://love2dev.com/feed.rss"
+      htmlUrl="https://love2dev.com/"
+      description="Love2Dev specializes in progressive web applications and SEO services to help customers grow their business online."
+    />
+
+    <outline
+      text="KIRUPA | Designers and Developers Unite"
+      title="KIRUPA | Designers and Developers Unite"
+      type="rss"
+      xmlUrl="https://www.kirupa.com/modular/kirupa.xml"
+      htmlUrl="https://www.kirupa.com/"
+      description="Become a better front-end web developer with our ridiculously clear content and friendly community!"
+    />
+
+    <outline
+      text="Evan Hahn&amp;#39;s blog"
+      title="Evan Hahn&amp;#39;s blog"
+      type="rss"
+      xmlUrl="https://evanhahn.com/blog/index.xml"
+      htmlUrl="https://evanhahn.com/blog/"
+      description="My blog, mostly about programming."
+    />
+
+    <outline
+      text="Untitled Feed"
+      title="Untitled Feed"
+      type="rss"
+      xmlUrl="https://alistapart.com/main/feed/"
+      htmlUrl="https://alistapart.com"
+      description="Articles for people who make web sites."
+    />
+
+    <outline
+      text="1stWebDesigner"
+      title="1stWebDesigner"
+      type="rss"
+      xmlUrl="https://1stwebdesigner.com/feed/"
+      htmlUrl="https://1stwebdesigner.com/"
+      description="Helping You Build a Better Web"
+    />
+
+    <outline
+      text="Articles on Smashing Magazine — For Web Designers And Developers"
+      title="Articles on Smashing Magazine — For Web Designers And Developers"
+      type="rss"
+      xmlUrl="https://www.smashingmagazine.com/feed"
+      htmlUrl="https://www.smashingmagazine.com/"
+      description="Recent content in Articles on Smashing Magazine — For Web Designers And Developers"
+    />
+
+    <outline
+      text="24 Accessibility"
+      title="24 Accessibility"
+      type="rss"
+      xmlUrl="https://www.24a11y.com/feed/"
+      htmlUrl="https://www.24a11y.com/"
+      description="24 days of accessibility gifts during the season of giving and sharing"
+    />
+
+    <outline
+      text="24 ways"
+      title="24 ways"
+      type="rss"
+      xmlUrl="https://feeds.feedburner.com/24ways"
+      htmlUrl="https://24ways.org/"
+      description="Web design and development articles and tutorials for advent."
+    />
+
+    <outline
+      text="Codrops"
+      title="Codrops"
+      type="rss"
+      xmlUrl="https://tympanus.net/codrops/feed/"
+      htmlUrl="https://tympanus.net/codrops"
+      description="Fueling web creativity since 2009"
+    />
+
+    <outline
+      text="CSS-Tricks"
+      title="CSS-Tricks"
+      type="rss"
+      xmlUrl="https://css-tricks.com/feed/"
+      htmlUrl="https://css-tricks.com"
+      description="Tips, Tricks, and Techniques on using Cascading Style Sheets."
+    />
+
+    <outline
+      text="overreacted — A blog by Dan Abramov"
+      title="overreacted — A blog by Dan Abramov"
+      type="rss"
+      xmlUrl="https://overreacted.io/rss.xml"
+      htmlUrl="https://overreacted.io/"
+      description="A blog by Dan Abramov"
+    />
+
+    <outline
+      text="Josh Collinsworth"
+      title="Josh Collinsworth"
+      type="rss"
+      xmlUrl="https://joshcollinsworth.com/api/rss.xml"
+      htmlUrl="https://joshcollinsworth.com"
+      description="Josh Collinsworth"
+    />
+
+    <outline
+      text="Kent C. Dodds Blog"
+      title="Kent C. Dodds Blog"
+      type="rss"
+      xmlUrl="https://kentcdodds.com/blog/rss.xml"
+      htmlUrl="https://kentcdodds.com/blog"
+      description="The Kent C. Dodds Blog"
+    />
+
+    <outline
+      text="Evil Martians"
+      title="Evil Martians"
+      type="rss"
+      xmlUrl="https://evilmartians.com/chronicles.atom"
+      htmlUrl="https://evilmartians.com/chronicles.atom"
+      description=""
+    />
+
+    <outline
+      text="Untitled Feed"
+      title="Untitled Feed"
+      type="rss"
+      xmlUrl="https://www.joshwcomeau.com/rss.xml"
+      htmlUrl="https://www.joshwcomeau.com/"
+      description=""
+    />
+
+    <outline
+      text="Untitled Feed"
+      title="Untitled Feed"
+      type="rss"
+      xmlUrl="https://tkdodo.eu/blog/rss.xml"
+      htmlUrl="https://tkdodo.eu/blog"
+      description=""
+    />
+
+    <outline
+      text="Sindre Sorhus — Blog"
+      title="Sindre Sorhus — Blog"
+      type="rss"
+      xmlUrl="https://sindresorhus.com/rss.xml"
+      htmlUrl="https://sindresorhus.com"
+      description="Full-Time Open-Sourcerer &amp;amp; Aspiring Rebel"
+    />
+
+    <outline
+      text="Una Kravets Online"
+      title="Una Kravets Online"
+      type="rss"
+      xmlUrl="https://una.im/rss.xml"
+      htmlUrl="https://una.im/"
+      description="The personal blog of Una Kravets. Web development, design, and platform news."
+    />
+
+    <outline
+      text="Ahmad Shadeed"
+      title="Ahmad Shadeed"
+      type="rss"
+      xmlUrl="https://ishadeed.com/feed.xml"
+      htmlUrl="https://ishadeed.com/"
+      description="Deep-dive CSS articles, modern CSS and visual CSS explanations."
+    />
+  </body>
+</opml>
