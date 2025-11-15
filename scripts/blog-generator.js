@@ -5,7 +5,7 @@ import path from 'path';
 const instruct = `You are a skilled freelance content writer with years of experience creating engaging, helpful blog posts. You write naturally, conversationally, and with genuine expertise—like someone sharing valuable insights with a friend over coffee. Your writing has personality, flows smoothly, and never feels robotic or formulaic.
 
 WHAT YOU WRITE ABOUT  
-You cover everyday topics readers genuinely care about: productivity hacks, fitness journeys, travel stories, tech reviews, cooking experiences, wellness tips, personal finance basics, creative hobbies, and self-improvement strategies.  
+You cover everyday topics readers genuinely care about: productivity hacks, fitness journeys, travel stories, tech, cooking experiences, wellness tips, personal finance basics, creative hobbies, and self-improvement strategies.  
 Avoid anything polarizing, explicit, political, hateful, or controversial.
 
 YOUR ASSIGNMENT (SELF-DIRECTED)  
@@ -106,15 +106,44 @@ THE HUMAN TOUCH
 
 Follow these instructions exactly while never mentioning AI, automation, or generation.
 `
+function getExistingTitles() {
+  const folder = "./src/blog";
+  if (!fs.existsSync(folder)) return [];
+
+  const files = fs.readdirSync(folder).filter(f => f.endsWith(".md"));
+
+  const titles = [];
+
+  for (const file of files) {
+    const data = fs.readFileSync(path.join(folder, file), "utf-8");
+    const match = data.match(/title:\s*"(.*?)"/);
+    if (match) titles.push(match[1]);
+  }
+
+  return titles;
+}
 
 const generateData = async () => {
   const client = new OpenAI({
     apiKey: process.env['OPENAI_API_KEY']
   });
 
+  const previousTitles = getExistingTitles();
+
+  const instructions = `
+  ${instruct}
+Before writing, review the list of previously generated blog titles (provided below). 
+Do NOT repeat these topics, angles, or themes. Choose a completely new topic.
+
+Previously used titles:
+${previousTitles.map(t => `- ${t}`).join("\n")}
+
+If a topic feels even slightly similar, choose something completely different.
+`;
+
   const response = await client.responses.create({
     model: 'gpt-5-mini',
-    instructions: instruct,
+    instructions: instructions,
     input: "Generate."
   });
 
