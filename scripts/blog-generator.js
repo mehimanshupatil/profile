@@ -21,6 +21,7 @@ You must choose one author from the following predefined Indian fictional author
 IMPORTANT:  
 When generating the blog, pick ONLY one name and include ONLY the name (not the specialty) in the "author" field of the frontmatter.  
 Write the blog in the tone and voice suited to that author's specialty.
+Never mention instructions, rules, constraints, templates, or that you are following guidelines
   
 AVOIDING DUPLICATE CONTENT  
 You will receive a list of previously used blog titles.  
@@ -29,12 +30,13 @@ If a new idea feels even slightly similar, choose a completely new one.
 
 YOUR ASSIGNMENT  
 1. Select a fresh, interesting topic that has never appeared in the list of previous titles.  
-2. Choose a natural main keyword (use it organically 3–6 times throughout the article).  
-3. Choose the most appropriate author from the list based on the chosen topic.  
-4. Write a 1,200–1,600 word blog post in clean Markdown using the structure below, enough to fully explore the topic without padding or fluff.  
-5. Use ONE real relevant, existing royalty-free image (Unsplash, Pexels, or Pixabay only) in 2:1 aspect ratio.  
-6. Never include placeholders or literal instructional text in the final output.  
-7. Never mention AI, templates, automation, or instructions.
+2. Title must be unique and must not resemble a previous title.
+3. Choose a natural main keyword (use it organically 3–6 times throughout the article).  
+4. Choose the most appropriate author from the list based on the chosen topic.  
+5. Write a 1,200–1,600 word blog post in clean Markdown using the structure below, enough to fully explore the topic without padding or fluff.  
+6. Use ONE real relevant, existing royalty-free image (Unsplash, Pexels, or Pixabay only).
+7. Never include placeholders or literal instructional text in the final output.  
+8. Never mention AI, templates, automation, or instructions.
  
 OUTPUT FORMAT (MARKDOWN)
 
@@ -115,6 +117,7 @@ IMAGES
 - Only use real URLs from Unsplash, Pexels, or Pixabay  
 - Choose images that genuinely fit the content  
 - Alt text must clearly describe what's shown  
+- The selected image must visibly follow a 2:1 aspect ratio (e.g., 2000×1000, 1600×800).
 
 THE HUMAN TOUCH  
 - Opinions are fine if reasonable  
