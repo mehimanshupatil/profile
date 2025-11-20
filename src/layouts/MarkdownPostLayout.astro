@@ -10,92 +10,129 @@ const { frontmatter } = Astro.props;
 ---
 
 <BaseLayout
-  pageTitle={frontmatter.title}
+  title={frontmatter.title}
   image={frontmatter.image.url}
-  pageDescription={frontmatter.description}
+  description={frontmatter.description}
 >
-  <Warning
-    message={String.fromCharCode(
-      72,
-      101,
-      121,
-      32,
-      72,
-      117,
-      109,
-      97,
-      110,
-      115,
-      33,
-      32,
-      118,
-      105,
-      115,
-      105,
-      116,
-      32,
-      104,
-      111,
-      109,
-      101,
-      32,
-      102,
-      105,
-      114,
-      115,
-      116,
-      32,
-      98,
-      101,
-      102,
-      111,
-      114,
-      101,
-      32,
-      114,
-      101,
-      97,
-      100,
-      105,
-      110,
-      103,
-      32,
-      98,
-      108,
-      111,
-      103,
-    )}
-    client:load
-  />
-  <p>
-    <FormattedDate date={frontmatter.pubDate} />
-  </p>
-  <p><em>{frontmatter.description}</em></p>
-  <p>Written by: {frontmatter.author}</p>
-  <figure style="text-align: center;width: inherit;margin:0">
-    <img class="img" src={frontmatter.image.url} alt={frontmatter.image.alt} />
-    {
-      frontmatter.image.caption && (
-        <figcaption style="font-size: 0.9rem; color: #666 ;">
-          {frontmatter.image.caption}
-        </figcaption>
-      )
-    }
-  </figure>
+  <article>
+    <Warning
+      message={String.fromCharCode(
+        119,
+        97,
+        114,
+        110,
+        105,
+        110,
+        103,
+        32,
+        97,
+        108,
+        108,
+        32,
+        98,
+        108,
+        111,
+        103,
+        115,
+        32,
+        111,
+        110,
+        32,
+        116,
+        104,
+        105,
+        115,
+        32,
+        112,
+        97,
+        103,
+        101,
+        32,
+        105,
+        115,
+        32,
+        103,
+        101,
+        110,
+        101,
+        114,
+        97,
+        116,
+        101,
+        100,
+        32,
+        98,
+        121,
+        32,
+        65,
+        73,
+        32,
+        98,
+        111,
+        116,
+        46,
+        32,
+        66,
+        97,
+        115,
+        105,
+        99,
+        97,
+        108,
+        108,
+        121,
+        32,
+        65,
+        73,
+        32,
+        83,
+        76,
+        79,
+        80,
+        46,
+      )}
+      client:load
+    />
+    <p>
+      <FormattedDate date={frontmatter.pubDate} />
+    </p>
+    <p><em>{frontmatter.description}</em></p>
+    <p>Written by: {frontmatter.author}</p>
+    <figure style="width: 100%; text-align: center; margin:0">
+      <img
+        class="img"
+        src={frontmatter.image.url}
+        alt={frontmatter.image.alt}
+      />
+      {
+        frontmatter.image.caption && (
+          <figcaption style="font-size: 0.9rem; color: #666 ;">
+            {frontmatter.image.caption}
+          </figcaption>
+        )
+      }
+    </figure>
 
-  <div class="tags">
-    {
-      frontmatter.tags.map((tag: string) => (
-        <p class="tag">
-          <a href={`/tags/${tag}`}>{tag}</a>
-        </p>
-      ))
-    }
-  </div>
+    <div class="tags">
+      {
+        frontmatter.tags.map((tag: string) => (
+          <p class="tag">
+            <a href={`/tags/${tag}`}>{tag}</a>
+          </p>
+        ))
+      }
+    </div>
 
-  <slot />
+    <slot />
+  </article>
 </BaseLayout>
 <style>
+  article {
+    width: 960px;
+    max-width: calc(100% - 2rem);
+    margin: auto;
+    margin-bottom: 16px;
+  }
   a {
     color: #00539f;
   }

@@ -7,6 +7,6 @@ import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://human-writes.himanshupatil.dev",
+  site: "https://himanshupatil.dev",
   integrations: [preact(), sitemap()],
 });

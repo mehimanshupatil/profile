@@ -1,11 +1,10 @@
 import rss from "@astrojs/rss";
-import { getCollection } from "astro:content";
 import { getAllPostSorted } from '../helpers/helper';
 
 export async function GET(context) {
   const posts = (await getAllPostSorted())
   return rss({
-    title: "Astro Learner | Blog",
+    title: "Himanshu Patil | Blog",
     description: "My journey learning Astro",
     site: context.site,
     items: posts.map((post) => ({

@@ -4,10 +4,12 @@ import { getAllPostSorted } from "../../helpers/helper";
 const allPosts = await getAllPostSorted();
 
 const tags = [...new Set(allPosts.map((post) => post.data.tags).flat())];
-const pageTitle = "Tag Index";
+const title = "Tag Index";
 ---
 
-<BaseLayout pageTitle={pageTitle} pageDescription="">
+<BaseLayout title={title} description="">
+  <h3>{title}</h3>
+
   <div class="tags">
     {
       tags.map((tag) => (
@@ -22,10 +24,19 @@ const pageTitle = "Tag Index";
   a {
     color: #00539f;
   }
-
+  h3,
+  p {
+    width: 960px;
+    max-width: calc(100% - 2rem);
+    margin: auto;
+    margin-bottom: 16px;
+  }
   .tags {
     display: flex;
     flex-wrap: wrap;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 80ch;
   }
 
   .tag {

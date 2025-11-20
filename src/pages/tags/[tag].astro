@@ -25,8 +25,19 @@ const { tag } = Astro.params;
 const { posts } = Astro.props;
 ---
 
-<BaseLayout pageTitle={tag} pageDescription="">
+<BaseLayout title={tag} description="">
+  <h3>{tag}</h3>
   <p>Posts tagged with {tag}</p>
 
   <BlogList posts={posts} />
 </BaseLayout>
+<style>
+  h3,
+  p {
+    padding: 0;
+    width: 960px;
+    max-width: calc(100% - 2rem);
+    margin: auto;
+    margin-bottom: 16px;
+  }
+</style>

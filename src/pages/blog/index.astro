@@ -1,6 +1,6 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import { getAllPostSorted } from "../../helpers/helper";
+import { getAllPostSorted } from "../../helpers/helper.ts";
 import BlogList from "../../components/BlogList.astro";
 
 const pageTitle = "Read Something New";
@@ -9,9 +9,18 @@ const pageDesc =
 const allPosts = await getAllPostSorted();
 ---
 
-<BaseLayout pageTitle={pageTitle} pageDescription={pageDesc}>
+<BaseLayout title={pageTitle} description={pageDesc}>
   <p>
     {pageDesc}
   </p>
   <BlogList posts={allPosts} />
 </BaseLayout>
+
+<style>
+  p {
+    width: 960px;
+    max-width: calc(100% - 2rem);
+    margin: auto;
+    margin-bottom: 16px;
+  }
+</style>
