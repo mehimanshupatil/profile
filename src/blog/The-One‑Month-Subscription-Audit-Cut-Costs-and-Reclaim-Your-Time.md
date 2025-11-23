@@ -4,7 +4,7 @@ pubDate: 2025-11-22
 description: "A practical, one-month plan to review every recurring payment, stop wasted subscriptions, and save money without losing the apps you actually use."
 author: "Devika Iyer"
 image:
-  url: "https://source.unsplash.com/2000x1000/?phone,credit-card,subscription"
+  url: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=1000&w=2000"
   alt: "Phone and credit card on a wooden table representing digital subscriptions and payments"
   caption: "Image credit: Unsplash"
   creditUrl: "https://unsplash.com"
