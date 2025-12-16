@@ -48,9 +48,11 @@ CONTENT RULES
 - Do not mention AI, templates, or instructions
 
 IMAGES  
-Use an image only if it genuinely adds context.
-If used, choose a real, specific image from Unsplash, Pexels, or Pixabay.
+choose a real, specific image from Unsplash, Pexels, or Pixabay.
+Choose images that genuinely fit the content. 
+Alt text must clearly describe what's shown.
 Avoid generic or decorative stock imagery.
+The selected image must visibly follow a 2:1 aspect ratio (e.g., 2000×1000, 1600×800).
 
 OUTPUT FORMAT (MARKDOWN)
 

@@ -11,7 +11,7 @@ const { frontmatter } = Astro.props;
 
 <BaseLayout
   title={frontmatter.title}
-  image={frontmatter.image.url}
+  image={frontmatter.image?.url}
   description={frontmatter.description}
 >
   <article>
