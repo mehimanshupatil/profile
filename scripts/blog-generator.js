@@ -60,10 +60,10 @@ pubDate: YYYY-MM-DD
 description: "A clear, benefit-driven summary (150–160 characters)"
 author: "<One author name only>"
 image:
-  url: "Real image URL (if used)"
-  alt: "Clear, descriptive alt text"
-  caption: "Image credit"
-  creditUrl: "Source link"
+  url: "https://actual-working-image-url.com"
+  alt: "Brief, descriptive alt text"
+  caption: "Image credit: <source or photographer>"
+  creditUrl: "https://image-credit-url.com"
 tags: ["primary topic", "related theme", "category"]
 ---
 
