@@ -18,7 +18,7 @@ const { frontmatter } = Astro.props;
     <h1>
       {frontmatter.title}
     </h1>
-    <Warning
+    <!-- <Warning
       message={String.fromCharCode(
         119,
         97,
@@ -95,7 +95,7 @@ const { frontmatter } = Astro.props;
         46,
       )}
       client:load
-    />
+    /> -->
     <p>
       <FormattedDate date={frontmatter.pubDate} />
     </p>
