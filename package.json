@@ -11,11 +11,11 @@
     "generate-blog": "node ./scripts/blog-generator.js"
   },
   "dependencies": {
-    "@astrojs/preact": "^5.0.0",
-    "@astrojs/rss": "^4.0.17",
-    "@astrojs/sitemap": "^3.7.1",
-    "astro": "^6.0.4",
-    "openai": "^6.29.0",
+    "@astrojs/preact": "^5.1.0",
+    "@astrojs/rss": "^4.0.18",
+    "@astrojs/sitemap": "^3.7.2",
+    "astro": "^6.1.2",
+    "openai": "^6.33.0",
     "preact": "^10.29.0"
   }
 }

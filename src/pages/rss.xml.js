@@ -5,7 +5,7 @@ export async function GET(context) {
   const posts = (await getAllPostSorted())
   return rss({
     title: "Himanshu Patil | Blog",
-    description: "My journey learning Astro",
+    description: "Daily blog posts for working professionals and developers in India — covering tech, workflows, personal finance, and more.",
     site: context.site,
     items: posts.map((post) => ({
       title: post.data.title,
