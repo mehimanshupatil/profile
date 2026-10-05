@@ -9,6 +9,10 @@ import tailwindcss from "@tailwindcss/vite";
 export default defineConfig({
   site: "https://himanshupatil.dev",
   integrations: [react(), mdx(), sitemap()],
+  build: {
+    // One small stylesheet: inlining it removes a render-blocking request.
+    inlineStylesheets: "always",
+  },
   redirects: {
     "/about": "/#about",
   },

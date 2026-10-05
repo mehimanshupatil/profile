@@ -3,6 +3,9 @@ name: deploy
 on:
   push:
     branches: [main]
+  # Daily rebuild picks up the latest BMC lake report for the Lake Bulletin (12:30 IST).
+  schedule:
+    - cron: "0 7 * * *"
   workflow_dispatch:
 
 concurrency:

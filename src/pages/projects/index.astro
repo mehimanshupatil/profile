@@ -1,6 +1,8 @@
 ---
 import { getCollection } from "astro:content";
 import IndicatorBoard from "@/components/IndicatorBoard.astro";
+import LakeBulletin from "@/components/LakeBulletin.astro";
+import Scoreboard from "@/components/Scoreboard.astro";
 import Base from "@/layouts/Base.astro";
 
 const projects = (await getCollection("projects")).sort((a, b) => a.data.order - b.data.order);
@@ -11,5 +13,12 @@ const projects = (await getCollection("projects")).sort((a, b) => a.data.order -
 		<p class="text-line font-mono text-xs font-semibold tracking-[0.12em] uppercase">Departures</p>
 		<h1 class="font-heading mt-3 mb-10 text-6xl font-bold uppercase sm:text-7xl">Projects</h1>
 		<IndicatorBoard projects={projects} />
+
+		<h2 class="text-muted-foreground mt-16 mb-2 font-mono text-xs font-semibold tracking-[0.12em] uppercase">Scoreboard</h2>
+		<p class="text-muted-foreground mb-4">Every live site, measured weekly. Numbers are published as they come, good or bad.</p>
+		<Scoreboard />
+
+		<h2 class="text-muted-foreground mt-16 mb-4 font-mono text-xs font-semibold tracking-[0.12em] uppercase">Platform notice</h2>
+		<LakeBulletin />
 	</div>
 </Base>
