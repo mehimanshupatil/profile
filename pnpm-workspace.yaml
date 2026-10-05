@@ -1,2 +1,4 @@
 allowBuilds:
+  # postinstall only sends install telemetry; not needed to run
+  '@openuidev/lang-core': false
   esbuild: true

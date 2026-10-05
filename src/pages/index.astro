@@ -1,12 +1,17 @@
 ---
 import { getCollection } from "astro:content";
 import { Image } from "astro:assets";
+import AskMe from "@/components/AskMe";
 import IndicatorBoard from "@/components/IndicatorBoard.astro";
+import LensSwitcher from "@/components/LensSwitcher.astro";
 import StationBoard from "@/components/StationBoard.astro";
+import { defaultQuestions } from "@/data/lenses";
 import { experience, owner, socials } from "@/data/site";
+import { answersFor, projectCards } from "@/lib/answers";
 import Base from "@/layouts/Base.astro";
 import portrait from "@/assets/portrait.jpg";
 
+const cards = await projectCards();
 const projects = (await getCollection("projects", (p) => p.data.featured)).sort((a, b) => a.data.order - b.data.order);
 ---
 
@@ -71,6 +76,17 @@ const projects = (await getCollection("projects", (p) => p.data.featured)).sort(
 			<StationBoard station="projects" />
 			<div class="mt-8"><IndicatorBoard projects={projects} /></div>
 			<a href="/projects/" class="text-line mt-4 inline-block font-mono text-sm font-semibold hover:underline">All projects →</a>
+		</section>
+
+		<section id="ask" class="scroll-mt-20 py-16 lg:scroll-mt-8">
+			<StationBoard station="ask" />
+			<p class="text-muted-foreground mt-6 max-w-[60ch]">
+				Answers are generated ahead of time with OpenUI from my CV and project facts, then reviewed before they ship.
+			</p>
+			<div class="mt-8">
+				<AskMe client:visible questions={defaultQuestions} answers={answersFor("default").answers} projects={cards} />
+			</div>
+			<div class="mt-10"><LensSwitcher /></div>
 		</section>
 
 		<section id="contact" class="scroll-mt-20 py-16 lg:scroll-mt-8">

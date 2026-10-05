@@ -1,0 +1,29 @@
+---
+import { lenses } from "@/data/lenses";
+
+interface Props {
+	current?: string;
+}
+
+const { current } = Astro.props;
+---
+
+<nav aria-label="Viewing as" class="flex flex-wrap items-center gap-2" data-c="LensSwitcher">
+	<span class="text-muted-foreground mr-1 font-mono text-xs font-semibold tracking-widest uppercase">Viewing as</span>
+	<a
+		href="/"
+		class="aria-[current=page]:bg-line aria-[current=page]:text-primary-foreground aria-[current=page]:border-line hover:border-line rounded-full border px-3 py-1 text-sm"
+		aria-current={current ? undefined : "page"}>Everyone</a
+	>
+	{
+		lenses.map((l) => (
+			<a
+				href={`/for/${l.slug}/`}
+				class="aria-[current=page]:bg-line aria-[current=page]:text-primary-foreground aria-[current=page]:border-line hover:border-line rounded-full border px-3 py-1 text-sm"
+				aria-current={current === l.slug ? "page" : undefined}
+			>
+				{l.reader}
+			</a>
+		))
+	}
+</nav>
