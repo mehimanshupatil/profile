@@ -111,28 +111,6 @@ export const answers: Record<string, Answer> = {
 			{ type: "tags", items: ["Figma Plugin API", "Sketch Plugins", "Chrome Extensions"] },
 		],
 	},
-	backend: {
-		lead: "Serverless AWS backends and the pipelines that ship them.",
-		blocks: [
-			{
-				type: "bullets",
-				items: [
-					"Serverless infrastructure with AWS SAM, Lambda and API Gateway for file processing and workflow automation",
-					"CI/CD supporting multi-environment deployments from a single build",
-					"Node.js and REST APIs",
-				],
-			},
-		],
-	},
-	solo: {
-		lead: "Four live products, each designed, built and deployed on his own.",
-		blocks: [
-			{ type: "project", slug: "mumbai-local-sim", why: "Real-time 3D simulation of the Western line." },
-			{ type: "project", slug: "localkit", why: "Private file tools that run entirely in the browser." },
-			{ type: "project", slug: "shillak", why: "Offline-first shared budgets with no server." },
-			{ type: "project", slug: "mumbai-lakes", why: "Daily 3D map of Mumbai's water supply." },
-		],
-	},
 	"real-data": {
 		lead: "He bakes official and open data into the app, and validates it before anything ships.",
 		blocks: [
