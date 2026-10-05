@@ -1,6 +1,8 @@
 ---
 import { getCollection, render, type CollectionEntry } from "astro:content";
 import { Image } from "astro:assets";
+import LakeBulletin from "@/components/LakeBulletin.astro";
+import Scoreboard from "@/components/Scoreboard.astro";
 import Base from "@/layouts/Base.astro";
 
 export async function getStaticPaths() {
@@ -28,9 +30,11 @@ const { name, summary, stack, live, repo, article, cover, coverAlt, order } = pr
 			{article && <a href={article} class="rounded-lg border px-4 py-2 hover:border-line hover:text-line">Read the write-up ↗</a>}
 		</div>
 		{cover && <Image src={cover} alt={coverAlt ?? name} widths={[768, 1536]} sizes="(min-width: 48rem) 48rem, 100vw" class="mt-10 w-full rounded-xl border" />}
+		{project.id === "mumbai-lakes" && <div class="mt-10"><LakeBulletin /></div>}
 		<div class="prose-case mt-10">
 			<Content />
 		</div>
+		<div class="mt-12"><Scoreboard only={project.id} /></div>
 	</article>
 </Base>
 

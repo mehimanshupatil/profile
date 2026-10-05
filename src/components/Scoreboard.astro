@@ -1,0 +1,76 @@
+---
+import { getCollection } from "astro:content";
+import scoreboard from "@/data/scoreboard.json";
+
+interface Props {
+	/** Show a single site (a project id, or "site" for this website). */
+	only?: string;
+}
+
+const { only } = Astro.props;
+type Scores = { url: string; performance: number; accessibility: number; "best-practices": number; seo: number };
+const runs = scoreboard.runs as { date: string; results: Record<string, Scores> }[];
+const latest = runs.at(-1);
+const previous = runs.at(-2);
+const names: Record<string, string> = Object.fromEntries((await getCollection("projects")).map((p) => [p.id, p.data.name]));
+names.site = "This site";
+
+const columns = [
+	["performance", "PERF"],
+	["accessibility", "A11Y"],
+	["best-practices", "BP"],
+	["seo", "SEO"],
+] as const;
+const rows = latest ? Object.entries(latest.results).filter(([key]) => !only || key === only) : [];
+const fmt = new Intl.DateTimeFormat("en-IN", { dateStyle: "medium" });
+const tone = (n: number) => (n >= 90 ? "text-led-green" : n >= 50 ? "text-led" : "text-led-red");
+---
+
+{
+	latest && rows.length > 0 && (
+		<div class="bg-led-bg border-led-frame overflow-x-auto rounded-xl border-[6px] px-5 py-4" data-c="Scoreboard">
+			<p class="text-led-muted flex flex-wrap justify-between gap-2 font-mono text-[0.7rem] font-semibold tracking-widest">
+				<span>LIGHTHOUSE · MOBILE · MEDIAN OF 3</span>
+				<span>{fmt.format(new Date(latest.date)).toUpperCase()}</span>
+			</p>
+			<table class="mt-3 w-full min-w-[22rem] border-collapse">
+				<thead>
+					<tr class="text-led-muted text-left font-mono text-[0.7rem] font-semibold tracking-widest">
+						{!only && <th class="pb-2 font-semibold">SITE</th>}
+						{columns.map(([, label]) => (
+							<th class="pb-2 text-right font-semibold">{label}</th>
+						))}
+					</tr>
+				</thead>
+				<tbody>
+					{rows.map(([key, s]) => (
+						<tr class="border-led-frame border-t border-dashed first:border-t-0">
+							{!only && (
+								<th class="py-2 text-left">
+									<a href={s.url} class="font-led text-led led-glow text-lg font-extrabold uppercase hover:underline">
+										{names[key] ?? key}
+									</a>
+								</th>
+							)}
+							{columns.map(([c]) => {
+								const before = previous?.results[key]?.[c];
+								const diff = before === undefined ? 0 : s[c] - before;
+								return (
+									<td class="py-2 text-right">
+										<span class:list={["font-led led-glow text-2xl font-extrabold", tone(s[c])]}>{s[c]}</span>
+										{diff !== 0 && (
+											<span class:list={["ml-1 font-mono text-[0.65rem]", diff > 0 ? "text-led-green" : "text-led-red"]}>
+												{diff > 0 ? "▲" : "▼"}
+												{Math.abs(diff)}
+											</span>
+										)}
+									</td>
+								);
+							})}
+						</tr>
+					))}
+				</tbody>
+			</table>
+		</div>
+	)
+}

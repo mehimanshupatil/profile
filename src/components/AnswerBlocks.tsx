@@ -30,7 +30,7 @@ function BlockView({ block, projects }: { block: Block; projects: Record<string,
 					{block.items.map((s) => (
 						<div key={s.label} className="bg-led-bg rounded-md px-4 py-3">
 							<span className="font-led text-led led-glow block text-3xl font-extrabold">{s.value}</span>
-							<span className="text-muted-foreground font-mono text-xs uppercase">{s.label}</span>
+							<span className="text-led-muted font-mono text-xs uppercase">{s.label}</span>
 						</div>
 					))}
 				</div>

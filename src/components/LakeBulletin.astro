@@ -1,0 +1,53 @@
+---
+import { lakeBulletin } from "@/lib/lakes";
+
+const b = await lakeBulletin();
+const fmt = new Intl.DateTimeFormat("en-IN", { day: "numeric", month: "short", year: "numeric", timeZone: "Asia/Kolkata" });
+const stale = b && b.daysOld > 2;
+const delta = b?.lastYear ? b.totalPct - b.lastYear.pct : undefined;
+---
+
+{
+	b && (
+		<a
+			href="/projects/mumbai-lakes/"
+			class="bg-led-bg border-led-frame group block rounded-xl border-[6px] px-5 py-4"
+			data-c="LakeBulletin"
+			aria-label={`Lake Bulletin: Mumbai's lakes at ${b.totalPct.toFixed(1)}% useful storage, BMC report of ${fmt.format(new Date(b.date))}`}
+		>
+			<div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 font-mono text-[0.7rem] font-semibold tracking-widest text-led-muted">
+				<span>LAKE BULLETIN · <span class="font-deva">तलाव पातळी</span></span>
+				<span class:list={[stale && "text-led-red"]}>
+					BMC REPORT {fmt.format(new Date(b.date)).toUpperCase()} {b.time}
+					{stale && ` · ${b.daysOld} DAYS OLD`}
+				</span>
+			</div>
+			<div class="mt-3 grid items-center gap-5 sm:grid-cols-[auto_1fr]">
+				<div>
+					<p class="font-led text-led led-glow text-5xl leading-none font-extrabold">{b.totalPct.toFixed(1)}%</p>
+					<p class="mt-1 font-mono text-xs text-led-muted">
+						useful stock, 7 lakes
+						{delta !== undefined && (
+							<span class:list={[delta >= 0 ? "text-led-green" : "text-led-red"]}>
+								{" "}
+								{delta >= 0 ? "▲" : "▼"} {Math.abs(delta).toFixed(1)} vs {b.lastYear!.year}
+							</span>
+						)}
+					</p>
+				</div>
+				<ul class="grid gap-1.5" aria-hidden="true">
+					{b.lakes.map((l) => (
+						<li class="grid grid-cols-[7.5rem_1fr_3rem] items-center gap-2 font-mono text-[0.7rem] text-led-muted">
+							<span class="truncate">{l.name}</span>
+							<span class="h-2 overflow-hidden rounded-full bg-led-frame">
+								<span class="bg-led block h-full rounded-full" style={`width: ${Math.min(100, l.pct)}%`} />
+							</span>
+							<span class="text-led text-right">{Math.round(l.pct)}%</span>
+						</li>
+					))}
+				</ul>
+			</div>
+			<p class="text-led mt-3 font-mono text-xs opacity-80 group-hover:opacity-100">Open the 3D map →</p>
+		</a>
+	)
+}

@@ -19,6 +19,7 @@
     --color-led-green: var(--led-green);
     --color-led-bg: var(--led-bg);
     --color-led-frame: var(--led-frame);
+    --color-led-muted: var(--led-muted);
 
     --color-ring: var(--ring);
     --color-input: var(--input);
@@ -54,6 +55,7 @@
     --led-green: oklch(0.78 0.18 145);
     --led-bg: oklch(0.08 0 0);
     --led-frame: oklch(0.25 0.01 260);
+    --led-muted: oklch(0.72 0.01 260);
 
     --background: oklch(0.985 0.005 90);
     --foreground: oklch(0.22 0.02 260);
