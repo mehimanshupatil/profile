@@ -1,51 +1,52 @@
 import { ArrowRightIcon } from "@phosphor-icons/react";
-import { Renderer } from "@openuidev/react-lang";
 import { useEffect, useRef, useState } from "react";
-import { type ProjectCard, ProjectsContext, library } from "@/openui/library";
+import AnswerBlocks, { type ProjectCard } from "@/components/AnswerBlocks";
+import type { Answer } from "@/data/answers";
 
 type Props = {
 	questions: { id: string; q: string }[];
-	answers: Record<string, string>;
+	answers: Record<string, Answer>;
 	projects: Record<string, ProjectCard>;
 };
 
 const GLYPHS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+const FLAP_MS = 14; // per character settling on the board
+const TYPE_MS = 12; // per character of the lead
+const BLOCK_MS = 220; // between supporting blocks
 
-function prefersReducedMotion() {
-	return matchMedia("(prefers-reduced-motion: reduce)").matches;
-}
-
-/** Departure-board enquiry: the question flaps in, then the stored Answer replays as if streaming. */
+/** Departure-board enquiry: the question flaps in, the lead types out, then each block arrives. */
 export default function AskMe({ questions, answers, projects }: Props) {
 	const available = questions.filter((q) => answers[q.id]);
 	const [active, setActive] = useState<string | null>(null);
 	const [board, setBoard] = useState("SELECT AN ENQUIRY");
-	const [shown, setShown] = useState("");
-	const [streaming, setStreaming] = useState(false);
+	const [lead, setLead] = useState("");
+	const [revealed, setRevealed] = useState(0);
+	const [playing, setPlaying] = useState(false);
 	const raf = useRef(0);
 
 	useEffect(() => () => cancelAnimationFrame(raf.current), []);
 
 	function ask(id: string) {
 		cancelAnimationFrame(raf.current);
-		const question = available.find((q) => q.id === id)!;
-		const code = answers[id];
+		const target = available.find((q) => q.id === id)!.q.toUpperCase();
+		const answer = answers[id];
 		setActive(id);
 
-		if (prefersReducedMotion()) {
-			setBoard(question.q.toUpperCase());
-			setShown(code);
-			setStreaming(false);
+		if (matchMedia("(prefers-reduced-motion: reduce)").matches) {
+			setBoard(target);
+			setLead(answer.lead);
+			setRevealed(answer.blocks.length);
+			setPlaying(false);
 			return;
 		}
 
-		const target = question.q.toUpperCase();
 		const start = performance.now();
-		setShown("");
-		setStreaming(true);
+		const leadStart = target.length * FLAP_MS;
+		const blocksStart = leadStart + answer.lead.length * TYPE_MS;
+		setPlaying(true);
 		const frame = (now: number) => {
 			const t = now - start;
-			const settled = Math.floor(t / 14);
+			const settled = Math.floor(t / FLAP_MS);
 			let text = "";
 			for (let i = 0; i < target.length; i++) {
 				const c = target[i];
@@ -53,18 +54,13 @@ export default function AskMe({ questions, answers, projects }: Props) {
 				else if (i < settled + 6) text += GLYPHS[(Math.random() * GLYPHS.length) | 0];
 			}
 			setBoard(text);
-			// The Answer starts streaming once the question has settled on the board.
-			const streamStart = target.length * 14;
-			const chars = t > streamStart ? Math.floor((t - streamStart) / 3) : 0;
-			setShown(code.slice(0, chars));
-			if (chars < code.length) raf.current = requestAnimationFrame(frame);
-			else setStreaming(false);
+			setLead(answer.lead.slice(0, Math.max(0, Math.floor((t - leadStart) / TYPE_MS))));
+			const blocks = t < blocksStart ? 0 : Math.min(answer.blocks.length, 1 + Math.floor((t - blocksStart) / BLOCK_MS));
+			setRevealed(blocks);
+			if (blocks < answer.blocks.length || t < blocksStart) raf.current = requestAnimationFrame(frame);
+			else setPlaying(false);
 		};
 		raf.current = requestAnimationFrame(frame);
-	}
-
-	if (available.length === 0) {
-		return <p className="text-muted-foreground font-mono text-sm">Answers for these questions are being generated.</p>;
 	}
 
 	return (
@@ -92,12 +88,8 @@ export default function AskMe({ questions, answers, projects }: Props) {
 				<div className="bg-led-bg border-led-frame rounded-xl border-[6px] px-5 py-4" aria-hidden="true">
 					<p className="font-led text-led led-glow min-h-[1.5em] text-lg leading-snug font-extrabold sm:text-xl">{board}</p>
 				</div>
-				<div className="mt-5 min-h-48" aria-live="polite" aria-busy={streaming}>
-					{active && (
-						<ProjectsContext.Provider value={projects}>
-							<Renderer response={shown} library={library} isStreaming={streaming} />
-						</ProjectsContext.Provider>
-					)}
+				<div className="mt-5 min-h-48" aria-live="polite" aria-busy={playing}>
+					{active && <AnswerBlocks answer={answers[active]} lead={lead} revealed={revealed} projects={projects} />}
 				</div>
 			</div>
 		</div>

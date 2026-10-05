@@ -24,19 +24,17 @@ _Avoid_: Blog, article, entry
 A tailored presentation of the site for one kind of reader (e.g. a design-system lead), re-composing the same facts with a different emphasis.
 _Avoid_: Persona, mode, view, variant
 
-## Generated content
+## Ask me
 
 **Question**:
 A curated question a visitor can pick in "Ask me"; each Lens has its own set.
 _Avoid_: Prompt, query
 
 **Answer**:
-The pre-generated, interactive UI response to a Question, replayed to the visitor as if streaming live.
+The owner's hand-written reply to a Question, replayed on the departure board as if arriving live.
 _Avoid_: Response, reply, generation
 
-**Fact Base**:
-The owner-approved facts (career history, skills, project facts) that all generated content must be built from and may not go beyond.
-_Avoid_: Profile, context, data
+## Data widgets
 
 **Lake Bulletin**:
 A daily snapshot of Mumbai's lake water stock, presented as a widget.

@@ -6,10 +6,8 @@ export type Lens = {
 	slug: string;
 	/** Who the Lens is for, shown in the switcher. */
 	reader: string;
-	/** Shown until a generated intro Answer exists. */
+	/** Hero line for this reader. Emphasis only; never a claim the CV doesn't support. */
 	pitch: string;
-	/** Emphasis given to the generator. Never facts. */
-	focus: string;
 	projects: ProjectSlug[];
 	questions: Question[];
 };
@@ -27,7 +25,6 @@ export const lenses: Lens[] = [
 		slug: "frontend",
 		reader: "Frontend hiring manager",
 		pitch: "Seven years of production React, Next.js and Angular, with an obsession for the last 10% of interface quality.",
-		focus: "Depth in React and TypeScript, performance work, migrations of large frontends, and interface polish.",
 		projects: ["localkit", "mumbai-local-sim", "shillak", "mumbai-lakes"],
 		questions: [
 			{ id: "react-depth", q: "How deep is his React?" },
@@ -39,7 +36,6 @@ export const lenses: Lens[] = [
 		slug: "design-systems",
 		reader: "Design-system lead",
 		pitch: "Builds component systems other engineers, and LLMs, can pick up without asking.",
-		focus: "Reusable component systems and API libraries, design-tool integrations (Figma, Sketch), consistency across products.",
 		projects: ["localkit", "shillak", "mumbai-local-sim", "mumbai-lakes"],
 		questions: [
 			{ id: "component-systems", q: "What component systems has he built?" },
@@ -51,7 +47,6 @@ export const lenses: Lens[] = [
 		slug: "founders",
 		reader: "Startup founder",
 		pitch: "Ships features end to end: the interface, the serverless backend and the pipeline that deploys them.",
-		focus: "End-to-end ownership, AWS serverless backends, CI/CD, shipping small products alone.",
 		projects: ["shillak", "localkit", "mumbai-lakes", "mumbai-local-sim"],
 		questions: [
 			{ id: "end-to-end", q: "Can he own a feature end to end?" },
@@ -63,7 +58,6 @@ export const lenses: Lens[] = [
 		slug: "creative-tech",
 		reader: "Creative technologist",
 		pitch: "Turns real-world data into real-time 3D: Mumbai's lakes on real terrain and its trains on the real timetable.",
-		focus: "Real-time 3D with React Three Fiber, real geographic and timetable data, simulation and visualization.",
 		projects: ["mumbai-local-sim", "mumbai-lakes", "localkit", "shillak"],
 		questions: [
 			{ id: "3d", q: "What has he built in 3D?" },

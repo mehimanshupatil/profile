@@ -39,9 +39,6 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - name: Validate stored answers
-        run: pnpm generate:answers --check
-
       - name: Build project
         run: pnpm build
 

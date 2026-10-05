@@ -7,7 +7,8 @@ import LensSwitcher from "@/components/LensSwitcher.astro";
 import StationBoard from "@/components/StationBoard.astro";
 import { defaultQuestions } from "@/data/lenses";
 import { experience, owner, socials } from "@/data/site";
-import { answersFor, projectCards } from "@/lib/answers";
+import { answers } from "@/data/answers";
+import { projectCards } from "@/lib/answers";
 import Base from "@/layouts/Base.astro";
 import portrait from "@/assets/portrait.jpg";
 
@@ -80,11 +81,9 @@ const projects = (await getCollection("projects", (p) => p.data.featured)).sort(
 
 		<section id="ask" class="scroll-mt-20 py-16 lg:scroll-mt-8">
 			<StationBoard station="ask" />
-			<p class="text-muted-foreground mt-6 max-w-[60ch]">
-				Answers are generated ahead of time with OpenUI from my CV and project facts, then reviewed before they ship.
-			</p>
+			<p class="text-muted-foreground mt-6 max-w-[60ch]">The questions recruiters ask most, answered from my CV and projects.</p>
 			<div class="mt-8">
-				<AskMe client:visible questions={defaultQuestions} answers={answersFor("default").answers} projects={cards} />
+				<AskMe client:visible questions={defaultQuestions} answers={answers} projects={cards} />
 			</div>
 			<div class="mt-10"><LensSwitcher /></div>
 		</section>
