@@ -44,17 +44,6 @@ export const lenses: Lens[] = [
 		],
 	},
 	{
-		slug: "founders",
-		reader: "Startup founder",
-		pitch: "Ships features end to end: the interface, the serverless backend and the pipeline that deploys them.",
-		projects: ["shillak", "localkit", "mumbai-lakes", "mumbai-local-sim"],
-		questions: [
-			{ id: "end-to-end", q: "Can he own a feature end to end?" },
-			{ id: "backend", q: "What backend work has he done?" },
-			{ id: "solo", q: "What has he shipped on his own?" },
-		],
-	},
-	{
 		slug: "creative-tech",
 		reader: "Creative technologist",
 		pitch: "Turns real-world data into real-time 3D: Mumbai's lakes on real terrain and its trains on the real timetable.",
