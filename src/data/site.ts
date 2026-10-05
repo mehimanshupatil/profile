@@ -1,4 +1,4 @@
-// Career facts mirror the cv repo (src/data/resume.ts); Phase 3 reads them from there directly.
+// Career facts mirror the cv repo (src/data/resume.ts).
 export const owner = {
 	name: "Himanshu Patil",
 	headline: "Frontend-focused full-stack engineer",
@@ -22,10 +22,15 @@ export const stations = [
 	{ id: "about", label: "About", en: "Mumbai Central", mr: "मुंबई सेंट्रल", hi: "मुंबई सेंट्रल" },
 	{ id: "work", label: "Work", en: "Dadar", mr: "दादर", hi: "दादर" },
 	{ id: "projects", label: "Projects", en: "Bandra", mr: "वांद्रे", hi: "बांद्रा" },
+	{ id: "ask", label: "Ask me", en: "Andheri", mr: "अंधेरी", hi: "अंधेरी" },
 	{ id: "contact", label: "Contact", en: "Borivali", mr: "बोरिवली", hi: "बोरीवली" },
 ] as const;
 
 export type StationId = (typeof stations)[number]["id"];
+
+// Project ids (content/projects/*.mdx); Answers reference projects by these.
+export const projectSlugs = ["mumbai-lakes", "mumbai-local-sim", "localkit", "shillak"] as const;
+export type ProjectSlug = (typeof projectSlugs)[number];
 
 export const experience = [
 	{

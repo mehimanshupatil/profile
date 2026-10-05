@@ -1,0 +1,39 @@
+---
+import { getCollection } from "astro:content";
+import AskMe from "@/components/AskMe";
+import IndicatorBoard from "@/components/IndicatorBoard.astro";
+import LensSwitcher from "@/components/LensSwitcher.astro";
+import { type Lens, lenses } from "@/data/lenses";
+import { owner } from "@/data/site";
+import Base from "@/layouts/Base.astro";
+import { answers } from "@/data/answers";
+import { projectCards } from "@/lib/answers";
+
+export function getStaticPaths() {
+	return lenses.map((lens) => ({ params: { lens: lens.slug }, props: { lens } }));
+}
+
+const { lens } = Astro.props as { lens: Lens };
+const cards = await projectCards();
+const all = await getCollection("projects");
+const projects = lens.projects.map((slug) => all.find((p) => p.id === slug)!).map((p, i) => ({ ...p, data: { ...p.data, order: i + 1 } }));
+---
+
+<Base title={`${owner.name} · for a ${lens.reader.toLowerCase()}`} description={lens.pitch}>
+	<div class="mx-auto max-w-3xl py-16">
+		<LensSwitcher current={lens.slug} />
+		<p class="text-line mt-12 font-mono text-xs font-semibold tracking-[0.12em] uppercase">For a {lens.reader.toLowerCase()}</p>
+		<h1 class="font-heading mt-3 text-6xl leading-[0.92] font-bold uppercase sm:text-8xl">{owner.name}</h1>
+		<p class="mt-6 text-xl leading-snug sm:text-2xl" data-c="LensIntro">{lens.pitch}</p>
+
+		<h2 class="text-muted-foreground mt-16 mb-4 font-mono text-xs font-semibold tracking-[0.12em] uppercase">Departures, in your order</h2>
+		<IndicatorBoard projects={projects} />
+
+		<h2 class="text-muted-foreground mt-16 mb-4 font-mono text-xs font-semibold tracking-[0.12em] uppercase">Ask me</h2>
+		<AskMe client:visible questions={lens.questions} answers={answers} projects={cards} />
+
+		<p class="mt-16 text-2xl">
+			Want to talk? <a class="text-line hover:underline" href={`mailto:${owner.email}`}>{owner.email}</a>
+		</p>
+	</div>
+</Base>

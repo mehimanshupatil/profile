@@ -1,3 +1,7 @@
+---
+status: superseded by ADR-0003
+---
+
 # Generated claims come from the cv repo's Fact Base and are gated by PR review
 
 Career facts are read by the cron from the separate `cv` repo (`src/data/resume.ts`), with contact fields stripped before anything is sent to OpenUI; project facts live in this repo beside the Case Studies. Content that makes claims about the owner (Answers, Lenses) is opened as a pull request for human approval, while data-only content (Lake Bulletin, Scoreboard) auto-publishes. An LLM inventing a claim on a recruiter-facing page is the worst failure this site can have, and the claim-bearing inputs change rarely, so the review cost stays low.
