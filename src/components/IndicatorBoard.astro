@@ -1,0 +1,43 @@
+---
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+	projects: CollectionEntry<"projects">[];
+}
+
+const { projects } = Astro.props;
+---
+
+<div class="bg-led-bg border-led-frame overflow-hidden rounded-xl border-[6px] py-3" data-c="IndicatorBoard">
+	<div
+		class="text-muted-foreground grid grid-cols-[3rem_1fr_auto] gap-4 px-5 pb-2 font-mono text-[0.7rem] font-semibold tracking-widest sm:grid-cols-[3.5rem_1fr_minmax(0,16rem)_4.5rem]"
+		aria-hidden="true"
+	>
+		<span>PF</span><span>TRAIN</span><span class="hidden sm:block">VIA</span><span>STATUS</span>
+	</div>
+	<ol>
+		{
+			projects.map((p) => (
+				<li class="border-led-frame border-t border-dashed first:border-t-0">
+					<a
+						href={`/projects/${p.id}/`}
+						class="hover:bg-led/10 focus-visible:bg-led/10 grid grid-cols-[3rem_1fr_auto] items-center gap-4 px-5 py-3 outline-none sm:grid-cols-[3.5rem_1fr_minmax(0,16rem)_4.5rem]"
+						data-c="TrainRow"
+					>
+						<span class="font-led text-led led-glow text-2xl font-extrabold sm:text-3xl">{p.data.order}</span>
+						<span class="font-led text-led led-glow text-xl font-extrabold tracking-wide uppercase sm:text-3xl">{p.data.name}</span>
+						<span class="text-muted-foreground hidden truncate font-mono text-xs sm:block">{p.data.stack.slice(0, 3).join(" · ")}</span>
+						<span
+							class:list={[
+								"font-led led-glow text-lg font-extrabold sm:text-xl",
+								p.data.live ? "text-led-green" : "text-led-red",
+							]}
+						>
+							{p.data.live ? "LIVE" : "SOON"}
+						</span>
+					</a>
+				</li>
+			))
+		}
+	</ol>
+</div>

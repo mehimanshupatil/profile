@@ -1,0 +1,21 @@
+---
+name: Shillak
+summary: Offline-first shared budget tracker for families, flatmates and trips, with encrypted device-to-device sync and no server at all.
+stack: [React, TypeScript, Dexie, Web Crypto, WebRTC, Tailwind CSS]
+order: 4
+featured: true
+live: https://shillak.himanshupatil.dev/
+repo: https://github.com/mehimanshupatil/Shillak
+---
+
+## What it is
+
+_Shillak_ (शिल्लक) is Marathi for "the balance left". Groups log shared income, spending and transfers, set monthly limits per category and track savings goals. One install can belong to several independent spaces.
+
+## The hard part
+
+Sync without a server. Devices exchange data directly over local Wi-Fi (WebRTC), QR code batches or a JSON file, so no internet is required.
+
+## Privacy model
+
+Data lives only in IndexedDB, encrypted at rest with AES-256-GCM using a key derived from the user's PIN (PBKDF2, 200k iterations). The key exists only in memory while the app is unlocked, and the app auto-locks after five minutes in the background. It has no accounts and no analytics.

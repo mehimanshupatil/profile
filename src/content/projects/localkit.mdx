@@ -1,0 +1,20 @@
+---
+name: LocalKit
+summary: Privacy-first PDF, image, video and audio tools that run entirely in the browser. No uploads, no servers.
+stack: [Astro, React, WebAssembly, FFmpeg.wasm, Tailwind CSS]
+order: 3
+featured: true
+live: https://local-kit.himanshupatil.dev/
+repo: https://github.com/mehimanshupatil/local-kit
+article: https://canvs.in/blog/building-localkit-to-keep-routine-file-jobs-local
+cover: ../../assets/projects/localkit.png
+coverAlt: LocalKit tool dashboard
+---
+
+## What it is
+
+A toolbox for merging, splitting, compressing and watermarking PDFs, converting, resizing and cropping images, background removal, and trimming and converting video and audio. Every tool runs client-side, so files never leave the device.
+
+## The hard part
+
+Doing server-grade work in a tab: FFmpeg compiled to WebAssembly for video and audio, pdf-lib and PDF.js for documents, and an ONNX model for on-device background removal, all inside an installable PWA built from static Astro pages with React islands.

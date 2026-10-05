@@ -1,0 +1,15 @@
+---
+import { getCollection } from "astro:content";
+import IndicatorBoard from "@/components/IndicatorBoard.astro";
+import Base from "@/layouts/Base.astro";
+
+const projects = (await getCollection("projects")).sort((a, b) => a.data.order - b.data.order);
+---
+
+<Base title="Projects · Himanshu Patil" description="Things Himanshu Patil has built: 3D simulations, in-browser tools and offline-first apps.">
+	<div class="mx-auto max-w-4xl py-16">
+		<p class="text-line font-mono text-xs font-semibold tracking-[0.12em] uppercase">Departures</p>
+		<h1 class="font-heading mt-3 mb-10 text-6xl font-bold uppercase sm:text-7xl">Projects</h1>
+		<IndicatorBoard projects={projects} />
+	</div>
+</Base>

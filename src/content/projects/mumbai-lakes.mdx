@@ -1,0 +1,21 @@
+---
+name: Mumbai Lakes
+summary: Live 3D map of the seven lakes that supply Mumbai's water, on real terrain, updated daily from BMC's lake-level report.
+stack: [React, React Three Fiber, three.js, Vite]
+order: 1
+featured: true
+live: https://mumbai-lakes.himanshupatil.dev/
+repo: https://github.com/mehimanshupatil/mumbai-lakes-sim
+---
+
+## What it is
+
+A stylized 3D visualization of the city's water supply: real elevation from AWS Terrain Tiles, district boundaries from geoBoundaries, and river courses and reservoirs from OpenStreetMap. Water levels, rainfall and three-year comparisons come from the Brihanmumbai Municipal Corporation's (BMC) daily 6 AM report.
+
+## The hard part
+
+BMC publishes the report only as an image. There's no API. Every day the image is dropped into the repo, where an Action OCRs it and cross-checks every number before anything ships: lake totals against the printed total, percentages against storage ÷ capacity, levels against full and dead-storage limits, and duplicate dates. If validation fails, the site doesn't change.
+
+## Supply network
+
+The map follows BMC's own documents: Upper → Middle Vaitarna → Modak Sagar by river, then mains from Modak Sagar, Tansa, Bhatsa, Tulsi and Vihar to the Bhandup complex, fanning out to the city's distribution zones.

@@ -1,8 +1,13 @@
 ---
-import Hero from '../components/Hero.astro';
-import BaseLayout from '../layouts/BaseLayout.astro';
+import Base from "@/layouts/Base.astro";
 ---
 
-<BaseLayout title="Not Found" description="404 Error — this page was not found">
-	<Hero title="Page Not Found" tagline="Not found" />
-</BaseLayout>
+<Base title="Not found · Himanshu Patil">
+	<div class="mx-auto flex min-h-[70dvh] max-w-3xl flex-col justify-center">
+		<div class="bg-led-bg border-led-frame rounded-xl border-[6px] px-6 py-10" data-c="IndicatorBoard">
+			<p class="font-led text-led-red led-glow text-5xl font-extrabold sm:text-7xl">404</p>
+			<p class="font-led text-led led-glow mt-4 text-xl font-extrabold sm:text-2xl">THIS TRAIN IS NOT IN SERVICE</p>
+		</div>
+		<a href="/" class="text-line mt-6 font-mono text-sm font-semibold hover:underline">← Back to Churchgate</a>
+	</div>
+</Base>
