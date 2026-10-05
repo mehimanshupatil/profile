@@ -1,0 +1,66 @@
+---
+import "@/styles/global.css";
+import InspectMode from "@/components/InspectMode";
+import Line from "@/components/Line.astro";
+import { owner, socials } from "@/data/site";
+
+interface Props {
+	title?: string;
+	description?: string;
+	home?: boolean;
+}
+
+const {
+	title = `${owner.name} · ${owner.headline}`,
+	description = owner.pitch,
+	home = false,
+} = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>{title}</title>
+		<meta name="description" content={description} />
+		<link rel="canonical" href={canonical} />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:url" content={canonical} />
+		<meta property="og:type" content="website" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="sitemap" href="/sitemap-index.xml" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			rel="stylesheet"
+			href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600..800&family=Doto:wght@800&family=Inter+Tight:wght@400..700&family=JetBrains+Mono:wght@400..700&family=Noto+Sans+Devanagari:wght@500..600&display=swap"
+		/>
+		<script is:inline>
+			(() => {
+				let t = null;
+				try {
+					t = localStorage.getItem("theme");
+				} catch {}
+				const dark = t ? t === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
+				document.documentElement.classList.toggle("dark", dark);
+			})();
+		</script>
+	</head>
+	<body class="lg:grid lg:grid-cols-[16rem_minmax(0,1fr)]">
+		<Line home={home} />
+		<div class="flex min-h-dvh flex-col">
+			<main class="flex-1 px-4 pb-24 sm:px-10 lg:px-16 xl:px-24">
+				<slot />
+			</main>
+			<footer class="text-muted-foreground flex flex-wrap items-center gap-x-6 gap-y-2 border-t px-4 py-6 font-mono text-xs sm:px-10 lg:px-16 xl:px-24">
+				<span>© {new Date().getFullYear()} {owner.name}</span>
+				{socials.map((s) => <a class="hover:text-line" href={s.href}>{s.label}</a>)}
+				<span class="ml-auto hidden sm:inline">Press <kbd class="rounded border px-1">I</kbd> to inspect this page</span>
+			</footer>
+		</div>
+		<InspectMode client:idle />
+	</body>
+</html>

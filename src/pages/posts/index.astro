@@ -1,0 +1,52 @@
+---
+import { getCollection } from "astro:content";
+import { articles } from "@/data/site";
+import Base from "@/layouts/Base.astro";
+
+const posts = (await getCollection("posts", (p) => !p.data.draft)).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+const fmt = new Intl.DateTimeFormat("en-IN", { dateStyle: "medium" });
+---
+
+<Base title="Posts · Himanshu Patil" description="Hand-written posts by Himanshu Patil on frontend engineering.">
+	<div class="mx-auto max-w-3xl py-16">
+		<p class="text-line font-mono text-xs font-semibold tracking-[0.12em] uppercase">Platform notices</p>
+		<h1 class="font-heading mt-3 mb-10 text-6xl font-bold uppercase sm:text-7xl">Posts</h1>
+		{
+			posts.length === 0 ? (
+				<div class="bg-led-bg border-led-frame rounded-xl border-[6px] px-6 py-10 text-center" data-c="EmptyBoard">
+					<p class="font-led text-led led-glow text-2xl font-extrabold sm:text-3xl">NO SERVICE TODAY</p>
+					<p class="text-muted-foreground mt-3 font-mono text-sm">The first post here is still being written by hand.</p>
+				</div>
+			) : (
+				<ol>
+					{posts.map((p) => (
+						<li class="border-t py-6">
+							<a href={`/posts/${p.id}/`} class="group block">
+								<time class="text-muted-foreground font-mono text-sm">{fmt.format(p.data.pubDate)}</time>
+								<h2 class="group-hover:text-line mt-1 text-2xl font-semibold">{p.data.title}</h2>
+								<p class="text-muted-foreground mt-1">{p.data.description}</p>
+							</a>
+						</li>
+					))}
+				</ol>
+			)
+		}
+
+		<h2 class="text-muted-foreground mt-16 mb-2 font-mono text-xs font-semibold tracking-[0.12em] uppercase">Published elsewhere</h2>
+		<ol data-c="Articles">
+			{
+				articles.map((a) => (
+					<li class="border-t py-6">
+						<a href={a.href} class="group block">
+							<span class="text-muted-foreground font-mono text-sm">
+								{fmt.format(a.date)} · {a.site} ↗
+							</span>
+							<h3 class="group-hover:text-line mt-1 text-2xl font-semibold">{a.title}</h3>
+							<p class="text-muted-foreground mt-1">{a.description}</p>
+						</a>
+					</li>
+				))
+			}
+		</ol>
+	</div>
+</Base>

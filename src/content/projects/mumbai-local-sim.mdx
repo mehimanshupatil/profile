@@ -1,0 +1,23 @@
+---
+name: Mumbai Local Sim
+summary: Real-time 3D simulation of the Western Railway suburban line, Churchgate to Dahanu Road, running the real public timetable over real geography.
+stack: [React, React Three Fiber, three.js, Vite]
+order: 2
+featured: true
+live: https://mehimanshupatil.github.io/mumbai-local-sim/
+repo: https://github.com/mehimanshupatil/mumbai-local-sim
+cover: ../../assets/projects/mumbai-local-sim.png
+coverAlt: Morning peak at Dadar in the Mumbai Local simulation
+---
+
+## What it is
+
+All 37 stations and the track geometry are baked from OpenStreetMap and draped over a real terrain heightfield, with the Arabian Sea, Mahim bay and the Vasai creek crossing where they belong.
+
+## The hard part
+
+Every slow, fast and AC local runs the actual Western Railway Public Time Table: 1,358 real services (837 slow, 374 fast, 147 AC) baked from the official PDFs. That covers real departure times, turnback termini and skip-stop patterns. Fast locals overtake slows because the schedules say so; nothing is scripted.
+
+## How
+
+A pure, deterministic simulation core, `(network, services, simTime) → TrainState[]`, drives everything. A sim clock (pause, 1×, 10×, 60×, or sync to live IST) runs both the timetable and a day/night cycle.

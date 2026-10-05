@@ -1,0 +1,59 @@
+---
+import { getCollection, render, type CollectionEntry } from "astro:content";
+import { Image } from "astro:assets";
+import Base from "@/layouts/Base.astro";
+
+export async function getStaticPaths() {
+	const projects = await getCollection("projects");
+	return projects.map((p) => ({ params: { slug: p.id }, props: { project: p } }));
+}
+
+const { project } = Astro.props as { project: CollectionEntry<"projects"> };
+const { Content } = await render(project);
+const { name, summary, stack, live, repo, article, cover, coverAlt, order } = project.data;
+---
+
+<Base title={`${name} · Himanshu Patil`} description={summary}>
+	<article class="mx-auto max-w-3xl py-16">
+		<a href="/projects/" class="text-muted-foreground hover:text-line block w-fit font-mono text-xs font-semibold tracking-widest uppercase">← Departures</a>
+		<p class="font-led text-led led-glow bg-led-bg mt-8 w-fit rounded-md px-3 py-1 text-xl font-extrabold">PF {order}</p>
+		<h1 class="font-heading mt-4 text-6xl leading-none font-bold uppercase sm:text-7xl">{name}</h1>
+		<p class="text-muted-foreground mt-4 text-xl leading-relaxed">{summary}</p>
+		<div class="mt-6 flex flex-wrap items-center gap-2">
+			{stack.map((s) => <span class="bg-muted rounded-full px-3 py-1 font-mono text-xs">{s}</span>)}
+		</div>
+		<div class="mt-6 flex flex-wrap gap-4 font-mono text-sm font-semibold">
+			{live && <a href={live} class="bg-primary text-primary-foreground rounded-lg px-4 py-2 hover:opacity-90">Board this train → live</a>}
+			{repo && <a href={repo} class="rounded-lg border px-4 py-2 hover:border-line hover:text-line">Source</a>}
+			{article && <a href={article} class="rounded-lg border px-4 py-2 hover:border-line hover:text-line">Read the write-up ↗</a>}
+		</div>
+		{cover && <Image src={cover} alt={coverAlt ?? name} widths={[768, 1536]} sizes="(min-width: 48rem) 48rem, 100vw" class="mt-10 w-full rounded-xl border" />}
+		<div class="prose-case mt-10">
+			<Content />
+		</div>
+	</article>
+</Base>
+
+<style>
+	.prose-case :global(h2) {
+		font-family: var(--font-mono);
+		font-size: 0.75rem;
+		font-weight: 600;
+		letter-spacing: 0.12em;
+		text-transform: uppercase;
+		color: var(--line);
+		margin: 2.5rem 0 0.75rem;
+	}
+	.prose-case :global(p) {
+		font-size: 1.125rem;
+		line-height: 1.7;
+		color: var(--muted-foreground);
+	}
+	.prose-case :global(code) {
+		font-family: var(--font-mono);
+		font-size: 0.9em;
+		background: var(--muted);
+		border-radius: 0.25rem;
+		padding: 0.1em 0.35em;
+	}
+</style>

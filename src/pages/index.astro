@@ -1,185 +1,88 @@
 ---
-// Page section components
-import ContactCTA from "../components/ContactCTA.astro";
-import Hero from "../components/Hero.astro";
-import Icon from "../components/Icon.astro";
-import Pill from "../components/Pill.astro";
-import Skills from "../components/Skills.astro";
-// Layout import — provides basic page elements: <head>, <nav>, <footer> etc.
-import BaseLayout from "../layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+import { Image } from "astro:assets";
+import IndicatorBoard from "@/components/IndicatorBoard.astro";
+import StationBoard from "@/components/StationBoard.astro";
+import { experience, owner, socials } from "@/data/site";
+import Base from "@/layouts/Base.astro";
+import portrait from "@/assets/portrait.jpg";
+
+const projects = (await getCollection("projects", (p) => p.data.featured)).sort((a, b) => a.data.order - b.data.order);
 ---
 
-<BaseLayout>
-	<div class="stack gap-20 lg:gap-48">
-		<div class="wrapper stack gap-8 lg:gap-20">
-			<header class="hero">
-				<Hero
-					title="Hello, my name is Himanshu Patil"
-					tagline="I am a Fullstack Developer who is currently based in Mumbai, IN."
-					align="start"
-				>
-					<div class="roles">
-						<Pill><Icon icon="code" size="1.33em" /> Developer</Pill
-						>
-					</div>
-				</Hero>
+<Base home>
+	<div class="mx-auto max-w-3xl">
+		<section id="intro" class="flex min-h-[calc(100dvh-3.5rem)] flex-col justify-center py-16 lg:min-h-dvh" data-c="Intro">
+			<p class="text-line font-mono text-xs font-semibold tracking-[0.12em] uppercase sm:text-sm">
+				Western Line · Fast · Churchgate → Borivali
+			</p>
+			<h1 class="font-heading mt-4 mb-3 text-6xl leading-[0.92] font-bold uppercase sm:text-8xl lg:text-[7.5rem]">{owner.name}</h1>
+			<p class="text-xl sm:text-3xl">{owner.headline}, {owner.city}.</p>
+			<p class="text-muted-foreground mt-6 max-w-[60ch] text-lg leading-relaxed">{owner.pitch}</p>
+		</section>
 
-				<img
-					alt="Himanshu Patil posing with folded hand"
-					width="480"
-					height="620"
-					src="/assets/portrait-1.jpg"
+		<section id="about" class="scroll-mt-20 py-16 lg:scroll-mt-8">
+			<StationBoard station="about" />
+			<div class="mt-8 grid items-start gap-8 sm:grid-cols-[1fr_12rem]">
+				<div class="text-muted-foreground space-y-4 text-lg leading-relaxed" data-c="AboutCopy">
+					<p>
+						Seven years building production frontends and the backends behind them: React, Next.js and Angular on the front,
+						Node and AWS serverless when a feature needs it.
+					</p>
+					<p>
+						I build component systems other engineers (and LLMs) can pick up without asking me, and I care about the last
+						10%: the hover state, the reduced-motion path, the frame budget on a cheap phone.
+					</p>
+				</div>
+				<Image
+					src={portrait}
+					alt={`Portrait of ${owner.name}`}
+					widths={[192, 384]}
+					sizes="12rem"
+					class="w-48 rounded-lg object-cover grayscale-[0.2] sm:w-full"
 				/>
-			</header>
+			</div>
+		</section>
 
-			<Skills />
-		</div>
+		<section id="work" class="scroll-mt-20 py-16 lg:scroll-mt-8">
+			<StationBoard station="work" />
+			<ol class="mt-8" data-c="Timeline">
+				{
+					experience.map((e) => (
+						<li class="grid gap-1 border-t py-6 sm:grid-cols-[10rem_1fr] sm:gap-6">
+							<time class="text-muted-foreground font-mono text-sm">
+								{e.from} – {e.to}
+							</time>
+							<div>
+								<h3 class="text-xl font-semibold">
+									{e.role}, {e.org}
+								</h3>
+								<ul class="text-muted-foreground mt-2 list-disc space-y-1 pl-5 leading-relaxed marker:text-line">
+									{e.points.map((p) => <li>{p}</li>)}
+								</ul>
+							</div>
+						</li>
+					))
+				}
+			</ol>
+		</section>
 
-		<ContactCTA />
+		<section id="projects" class="scroll-mt-20 py-16 lg:scroll-mt-8">
+			<StationBoard station="projects" />
+			<div class="mt-8"><IndicatorBoard projects={projects} /></div>
+			<a href="/projects/" class="text-line mt-4 inline-block font-mono text-sm font-semibold hover:underline">All projects →</a>
+		</section>
+
+		<section id="contact" class="scroll-mt-20 py-16 lg:scroll-mt-8">
+			<StationBoard station="contact" />
+			<p class="mt-8 text-2xl sm:text-3xl">End of the line.</p>
+			<a href={`mailto:${owner.email}`} class="text-line font-heading mt-2 inline-block text-4xl font-bold break-all hover:underline sm:text-5xl">
+				{owner.email}
+			</a>
+			<ul class="mt-6 flex flex-wrap gap-4 font-mono text-sm">
+				{socials.map((s) => <li><a class="hover:text-line underline-offset-4 hover:underline" href={s.href}>{s.label}</a></li>)}
+				<li><a class="hover:text-line underline-offset-4 hover:underline" href={owner.cv}>CV</a></li>
+			</ul>
+		</section>
 	</div>
-</BaseLayout>
-
-<style>
-	.hero {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		gap: 2rem;
-	}
-
-	.roles {
-		display: none;
-	}
-
-	.hero img {
-		aspect-ratio: 5 / 4;
-		object-fit: cover;
-		object-position: top;
-		border-radius: 1.5rem;
-		box-shadow: var(--shadow-md);
-	}
-
-	@media (min-width: 50em) {
-		.hero {
-			display: grid;
-			grid-template-columns: 6fr 4fr;
-			padding-inline: 2.5rem;
-			gap: 3.75rem;
-		}
-
-		.roles {
-			margin-top: 0.5rem;
-			display: flex;
-			gap: 0.5rem;
-		}
-
-		.hero img {
-			aspect-ratio: 3 / 4;
-			border-radius: 4.5rem;
-			object-fit: cover;
-		}
-	}
-
-	/* ====================================================== */
-
-	.section {
-		display: grid;
-		gap: 2rem;
-	}
-
-	.with-background {
-		position: relative;
-	}
-
-	.with-background::before {
-		--hero-bg: var(--bg-image-subtle-2);
-
-		content: "";
-		position: absolute;
-		pointer-events: none;
-		left: 50%;
-		width: 100vw;
-		aspect-ratio: calc(2.25 / var(--bg-scale));
-		top: 0;
-		transform: translateY(-75%) translateX(-50%);
-		background:
-			url("/assets/backgrounds/noise.png") top center/220px repeat,
-			var(--hero-bg) center center / var(--bg-gradient-size) no-repeat,
-			var(--gray-999);
-		background-blend-mode: overlay, normal, normal, normal;
-		mix-blend-mode: var(--bg-blend-mode);
-		z-index: -1;
-	}
-
-	.with-background.bg-variant::before {
-		--hero-bg: var(--bg-image-subtle-1);
-	}
-
-	.section-header {
-		justify-self: center;
-		text-align: center;
-		max-width: 50ch;
-		font-size: var(--text-md);
-		color: var(--gray-300);
-	}
-
-	.section-header h3 {
-		font-size: var(--text-2xl);
-	}
-
-	@media (min-width: 50em) {
-		.section {
-			grid-template-columns: repeat(4, 1fr);
-			grid-template-areas: "header header header header" "gallery gallery gallery gallery";
-			gap: 5rem;
-		}
-
-		.section.with-cta {
-			grid-template-areas: "header header header cta" "gallery gallery gallery gallery";
-		}
-
-		.section-header {
-			grid-area: header;
-			font-size: var(--text-lg);
-		}
-
-		.section-header h3 {
-			font-size: var(--text-4xl);
-		}
-
-		.with-cta .section-header {
-			justify-self: flex-start;
-			text-align: left;
-		}
-
-		.gallery {
-			grid-area: gallery;
-		}
-
-		.cta {
-			grid-area: cta;
-		}
-	}
-
-	/* ====================================================== */
-
-	.mention-card {
-		display: flex;
-		height: 7rem;
-		justify-content: center;
-		align-items: center;
-		text-align: center;
-		border: 1px solid var(--gray-800);
-		border-radius: 1.5rem;
-		color: var(--gray-300);
-		background: var(--gradient-subtle);
-		box-shadow: var(--shadow-sm);
-	}
-
-	@media (min-width: 50em) {
-		.mention-card {
-			border-radius: 1.5rem;
-			height: 9.5rem;
-		}
-	}
-</style>
+</Base>

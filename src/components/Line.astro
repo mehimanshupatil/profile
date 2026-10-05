@@ -1,0 +1,106 @@
+---
+import { owner, stations } from "@/data/site";
+import ThemeToggle from "./ThemeToggle";
+
+interface Props {
+	/** On the home page Stations are in-page anchors; elsewhere they link back home. */
+	home?: boolean;
+}
+
+const { home = false } = Astro.props;
+const base = home ? "" : "/";
+const pages = [
+	{ label: "Projects", href: "/projects/" },
+	{ label: "Posts", href: "/posts/" },
+	{ label: "CV", href: owner.cv },
+];
+const path = Astro.url.pathname;
+---
+
+<nav
+	class="bg-background/90 sticky top-0 z-40 flex h-14 items-center gap-4 border-b px-4 backdrop-blur lg:h-dvh lg:flex-col lg:items-stretch lg:gap-8 lg:border-r lg:border-b-0 lg:px-8 lg:py-10"
+	aria-label="Line"
+	data-c="Line"
+	data-line
+>
+	<a href="/" class="font-heading text-xl leading-none font-bold tracking-wide uppercase lg:text-2xl">{owner.name}</a>
+
+	<div class="relative hidden flex-1 lg:flex">
+		<div class="bg-line absolute top-2 bottom-2 left-[7px] w-1.5 rounded-full" aria-hidden="true">
+			<span
+				class="bg-foreground border-background absolute left-1/2 h-8 w-4 -translate-x-1/2 -translate-y-1/2 rounded-md border-[3px] transition-[top] duration-100 ease-linear motion-reduce:transition-none"
+				style="top: 0"
+				data-train
+			></span>
+		</div>
+		<ol class="relative flex flex-1 flex-col justify-between">
+			{
+				stations.map((s) => (
+					<li>
+						<a href={`${base}#${s.id}`} class="group flex items-center gap-3.5" data-station={s.id}>
+							<span class="bg-background border-line size-5 shrink-0 rounded-full border-4 transition-transform group-hover:scale-110 group-data-[here]:bg-line group-data-[here]:scale-125" />
+							<span class="flex flex-col leading-tight">
+								<b class="text-sm font-semibold">{s.en}</b>
+								<small class="text-muted-foreground text-xs">{s.label}</small>
+							</span>
+						</a>
+					</li>
+				))
+			}
+		</ol>
+	</div>
+
+	<div class="ml-auto flex items-center gap-1 lg:ml-0 lg:flex-col lg:items-stretch lg:gap-3">
+		<ul class="flex gap-3 font-mono text-xs font-semibold tracking-widest uppercase lg:flex-col lg:gap-2">
+			{
+				pages.map((p) => (
+					<li>
+						<a
+							href={p.href}
+							class="hover:text-line aria-[current=page]:text-line"
+							aria-current={path.startsWith(p.href) ? "page" : undefined}
+						>
+							{p.label}
+						</a>
+					</li>
+				))
+			}
+		</ul>
+		<ThemeToggle client:load />
+	</div>
+</nav>
+
+<script>
+	const line = document.querySelector<HTMLElement>("[data-line]");
+	const train = line?.querySelector<HTMLElement>("[data-train]");
+	const links = [...(line?.querySelectorAll<HTMLAnchorElement>("[data-station]") ?? [])];
+	const targets = links.map((a) => document.getElementById(a.dataset.station!));
+
+	function update() {
+		// Off the home page the train waits at Churchgate.
+		if (!train || !targets.every(Boolean)) return;
+		const rail = train.parentElement!.getBoundingClientRect();
+		const dots = links.map((a) => {
+			const r = a.firstElementChild!.getBoundingClientRect();
+			return r.top + r.height / 2 - rail.top;
+		});
+		// Section tops measured against a reading line 40% down the viewport.
+		const readLine = innerHeight * 0.4;
+		const tops = targets.map((t) => t!.getBoundingClientRect().top - readLine);
+		let here = 0;
+		tops.forEach((top, i) => {
+			if (top <= 0) here = i;
+		});
+		const atEnd = innerHeight + scrollY >= document.documentElement.scrollHeight - 2;
+		if (atEnd) here = links.length - 1;
+		const next = Math.min(here + 1, links.length - 1);
+		const span = tops[next] - tops[here];
+		const t = atEnd || next === here || span <= 0 ? 0 : Math.min(1, -tops[here] / span);
+		train.style.top = `${dots[here] + (dots[next] - dots[here]) * t}px`;
+		links.forEach((a, i) => a.toggleAttribute("data-here", i === here));
+	}
+
+	addEventListener("scroll", update, { passive: true });
+	addEventListener("resize", update);
+	update();
+</script>

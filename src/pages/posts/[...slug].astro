@@ -1,0 +1,24 @@
+---
+import { getCollection, render, type CollectionEntry } from "astro:content";
+import Base from "@/layouts/Base.astro";
+
+export async function getStaticPaths() {
+	const posts = await getCollection("posts", (p) => !p.data.draft);
+	return posts.map((p) => ({ params: { slug: p.id }, props: { post: p } }));
+}
+
+const { post } = Astro.props as { post: CollectionEntry<"posts"> };
+const { Content } = await render(post);
+const fmt = new Intl.DateTimeFormat("en-IN", { dateStyle: "long" });
+---
+
+<Base title={`${post.data.title} · Himanshu Patil`} description={post.data.description}>
+	<article class="mx-auto max-w-2xl py-16">
+		<a href="/posts/" class="text-muted-foreground hover:text-line block w-fit font-mono text-xs font-semibold tracking-widest uppercase">← Posts</a>
+		<time class="text-muted-foreground mt-8 block font-mono text-sm">{fmt.format(post.data.pubDate)}</time>
+		<h1 class="mt-2 text-4xl leading-tight font-semibold sm:text-5xl">{post.data.title}</h1>
+		<div class="mt-10 space-y-5 text-lg leading-relaxed">
+			<Content />
+		</div>
+	</article>
+</Base>

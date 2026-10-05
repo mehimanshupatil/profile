@@ -45,3 +45,13 @@ _Avoid_: Lake widget, water report
 **Scoreboard**:
 Lighthouse results for the owner's live sites, tracked over time.
 _Avoid_: Perf dashboard, metrics
+
+## Wayfinding
+
+**Station**:
+A top-level section of the site, named after a Western Line fast stop (Churchgate = Intro … Borivali = Contact).
+_Avoid_: Section, page, tab
+
+**Line**:
+The ordered route of Stations, shown as the site's navigation.
+_Avoid_: Nav, menu, sidebar

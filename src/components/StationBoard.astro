@@ -1,0 +1,25 @@
+---
+import { stations, type StationId } from "@/data/site";
+
+interface Props {
+	station: StationId;
+	as?: "h1" | "h2";
+}
+
+const { station, as: Tag = "h2" } = Astro.props;
+const s = stations.find((x) => x.id === station)!;
+---
+
+<div class="flex flex-col items-start gap-3" data-c="StationBoard">
+	<div
+		class="bg-board text-board-ink border-board-ink inline-flex min-w-56 flex-col items-center rounded-sm border-[3px] px-7 pt-2.5 pb-2 shadow-[0_2px_0_var(--board-ink)]"
+		aria-hidden="true"
+	>
+		<span class="font-deva text-lg leading-tight font-semibold">{s.mr}</span>
+		{s.hi !== s.mr && <span class="font-deva text-lg leading-tight font-semibold">{s.hi}</span>}
+		<span class="font-heading text-[1.65rem] leading-none font-bold tracking-wide uppercase">{s.en}</span>
+	</div>
+	<Tag class="text-muted-foreground font-mono text-xs font-semibold tracking-[0.12em] uppercase">
+		{s.label}<span class="sr-only"> ({s.en})</span>
+	</Tag>
+</div>
