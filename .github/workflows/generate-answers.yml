@@ -43,7 +43,7 @@ jobs:
       - name: Generate answers
         run: pnpm generate:answers ${{ inputs.force && '--force' || '' }}
         env:
-          THESYS_API_KEY: ${{ secrets.THESYS_API_KEY }}
+          OPENUI_API_KEY: ${{ secrets.OPENUI_API_KEY }}
           OPENUI_MODEL: ${{ vars.OPENUI_MODEL }}
 
       - name: Open review PR

@@ -148,8 +148,9 @@ async function main() {
 		return;
 	}
 
-	const apiKey = process.env.THESYS_API_KEY;
-	if (!apiKey) throw new Error("THESYS_API_KEY is not set");
+	// OpenUI Gateway key (created in the Thesys console, which OpenUI runs on).
+	const apiKey = process.env.OPENUI_API_KEY || process.env.THESYS_API_KEY;
+	if (!apiKey) throw new Error("OPENUI_API_KEY is not set");
 	const client = new OpenAI({ apiKey, baseURL: "https://api.thesys.dev/v1/embed" });
 
 	const out: AnswersFile = { inputsHash, model: MODEL, generatedAt: new Date().toISOString(), source: "openui-cloud", lenses: {} };
