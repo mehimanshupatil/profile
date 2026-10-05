@@ -39,6 +39,46 @@
 					"seo": 100
 				}
 			}
+		},
+		{
+			"date": "2026-10-05",
+			"results": {
+				"site": {
+					"url": "https://himanshupatil.dev/",
+					"performance": 99,
+					"accessibility": 100,
+					"best-practices": 100,
+					"seo": 100
+				},
+				"localkit": {
+					"url": "https://local-kit.himanshupatil.dev/",
+					"performance": 93,
+					"accessibility": 87,
+					"best-practices": 100,
+					"seo": 100
+				},
+				"mumbai-lakes": {
+					"url": "https://mumbai-lakes.himanshupatil.dev/",
+					"performance": 38,
+					"accessibility": 81,
+					"best-practices": 100,
+					"seo": 100
+				},
+				"mumbai-local-sim": {
+					"url": "https://mehimanshupatil.github.io/mumbai-local-sim/",
+					"performance": 45,
+					"accessibility": 97,
+					"best-practices": 100,
+					"seo": 100
+				},
+				"shillak": {
+					"url": "https://shillak.himanshupatil.dev/",
+					"performance": 76,
+					"accessibility": 84,
+					"best-practices": 100,
+					"seo": 100
+				}
+			}
 		}
 	]
 }
