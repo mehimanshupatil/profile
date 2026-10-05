@@ -1,9 +1,13 @@
-name: Daily Blog Generator
+name: deploy
 
 on:
-  schedule:
-    - cron: "0 0 * * *"
+  push:
+    branches: [main]
   workflow_dispatch:
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
 
 jobs:
   run:
@@ -13,7 +17,7 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
 
     permissions:
-      contents: "write"
+      contents: "read"
       pages: "write"
       id-token: "write"
 
@@ -35,21 +39,8 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - name: Run blog generator
-        env:
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-        run: pnpm generate-blog
-
       - name: Build project
         run: pnpm build
-
-      - name: Commit and push generated content
-        run: |
-          git config user.name "github-actions"
-          git config user.email "actions@github.com"
-          git add .
-          git commit -m "[skip-ci] Daily blog update ($(date))" || echo "[skip-ci] No changes to commit"
-          git push
 
       - name: Setup Pages
         uses: actions/configure-pages@v5

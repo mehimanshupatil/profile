@@ -1,5 +1,5 @@
 {
-  "name": "ai-blog-slop",
+  "name": "himanshupatil.dev",
   "type": "module",
   "version": "0.0.1",
   "private": true,
@@ -7,15 +7,10 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro",
-    "generate-blog": "node ./scripts/blog-generator.js"
+    "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/preact": "^6.0.5",
-    "@astrojs/rss": "^4.0.19",
     "@astrojs/sitemap": "^3.7.4",
-    "astro": "^7.3.5",
-    "openai": "^7.27.0",
-    "preact": "^10.29.8"
+    "astro": "^7.3.5"
   }
 }
