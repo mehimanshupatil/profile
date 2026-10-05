@@ -1,0 +1,131 @@
+---
+// PROTOTYPE — Variant B "Indicator Board": dark, single-screen platform indicator. Rows are trains (projects/sections); Ask me is a dot-matrix flap board.
+import { owner, experience, projects, questions } from "./data";
+const times = ["10:42", "10:47", "10:51", "10:58"];
+---
+
+<div class="vb" data-c="VariantB">
+	<header class="top" data-c="BoardHeader">
+		<div class="clock" data-clock>--:--:--</div>
+		<div class="title"><span class="led">{owner.name.toUpperCase()}</span><small>{owner.headline} · {owner.city}</small></div>
+		<div class="pf-badge">PF<b>1</b></div>
+	</header>
+
+	<section class="board" data-c="IndicatorBoard" aria-label="Projects">
+		<div class="row head"><span>TIME</span><span>TRAIN</span><span>F/S</span><span>CARS</span><span>PF</span></div>
+		{projects.map((p, i) => (
+			<details class="row-wrap" data-c="TrainRow">
+				<summary class="row"><span class="led">{times[i]}</span><span class="led dest">{p.name.toUpperCase()}</span><span class={`led fs ${p.kind}`}>{p.kind}</span><span class="led">12</span><span class="led">{p.platform}</span></summary>
+				<div class="detail"><p>{p.line}</p><p class="stack">{p.stack}</p><a href="#">{p.live ? "Board this train → live demo" : "Watch the run → video"}</a></div>
+			</details>
+		))}
+	</section>
+
+	<section class="ticker" data-c="Ticker" aria-hidden="true">
+		<div class="ticker-track led">
+			{[0, 1].map(() => <span>{experience.map((e) => `★ ${e.org.toUpperCase()} ${e.from.toUpperCase()}–${e.to.toUpperCase()}: ${e.role.toUpperCase()}   `).join("")}★ {owner.pitch.toUpperCase()}   </span>)}
+		</div>
+	</section>
+
+	<section class="ask" data-c="AskMe">
+		<div class="ask-q">
+			<p class="lbl">ENQUIRY · पूछताछ · चौकशी</p>
+			{questions.map((q, i) => <button type="button" data-q={i}><span class="led">{String(i + 1).padStart(2, "0")}</span>{q.q}</button>)}
+		</div>
+		<div class="ask-a" aria-live="polite"><div class="flap led" data-flap>SELECT AN ENQUIRY</div></div>
+	</section>
+
+	<footer class="foot"><span class="led">NEXT: BORIVALI</span><a href="mailto:dev@himanshupatil.dev">dev@himanshupatil.dev</a></footer>
+</div>
+
+<script>
+	import { questions } from "./data";
+	const root = document.querySelector<HTMLElement>(".vb")!;
+	const clock = root.querySelector<HTMLElement>("[data-clock]")!;
+	const tick = () => (clock.textContent = new Date().toLocaleTimeString("en-GB", { timeZone: "Asia/Kolkata" }));
+	tick();
+	setInterval(tick, 1000);
+
+	const flap = root.querySelector<HTMLElement>("[data-flap]")!;
+	const glyphs = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+	let raf = 0;
+	root.querySelectorAll<HTMLButtonElement>("[data-q]").forEach((b) =>
+		b.addEventListener("click", () => {
+			cancelAnimationFrame(raf);
+			root.querySelectorAll("[data-q]").forEach((x) => x.classList.toggle("on", x === b));
+			const target = questions[Number(b.dataset.q)].a.toUpperCase();
+			const start = performance.now();
+			const frame = (t: number) => {
+				const settled = Math.floor((t - start) / 12);
+				let out = "";
+				for (let i = 0; i < target.length; i++) {
+					const c = target[i];
+					out += i < settled || c === " " ? c : i < settled + 8 ? glyphs[(Math.random() * glyphs.length) | 0] : "";
+				}
+				flap.textContent = out;
+				if (settled < target.length) raf = requestAnimationFrame(frame);
+			};
+			raf = requestAnimationFrame(frame);
+		}),
+	);
+</script>
+
+<style>
+	.vb {
+		--bg: oklch(0.13 0.01 260);
+		--panel: oklch(0.17 0.01 260);
+		--amber: oklch(0.8 0.17 70);
+		--red: oklch(0.65 0.22 28);
+		--green: oklch(0.78 0.18 145);
+		--dim: oklch(0.55 0.02 260);
+		background: var(--bg);
+		color: oklch(0.92 0.01 260);
+		font-family: "Inter Tight", system-ui, sans-serif;
+		min-height: 100vh;
+		padding: 24px clamp(16px, 4vw, 48px) 32px;
+		display: grid;
+		gap: 20px;
+		grid-template-rows: auto 1fr auto auto auto;
+	}
+	.led { font-family: "Doto", monospace; font-weight: 800; color: var(--amber); text-shadow: 0 0 8px oklch(0.8 0.17 70 / 0.45); letter-spacing: 0.04em; }
+	.top { display: grid; grid-template-columns: auto 1fr auto; gap: 24px; align-items: center; background: var(--panel); border: 1px solid oklch(0.3 0.01 260); border-radius: 10px; padding: 16px 24px; }
+	.clock { font: 800 28px "Doto", monospace; color: var(--red); text-shadow: 0 0 10px oklch(0.65 0.22 28 / 0.5); }
+	.title { display: flex; flex-direction: column; }
+	.title .led { font-size: clamp(28px, 5vw, 56px); line-height: 1; }
+	.title small { color: var(--dim); margin-top: 6px; font-size: 15px; }
+	.pf-badge { display: grid; place-items: center; width: 64px; height: 64px; border-radius: 50%; background: var(--amber); color: #111; font: 700 12px/1 "JetBrains Mono", monospace; }
+	.pf-badge b { font-size: 26px; }
+	.board { background: #000; border-radius: 10px; padding: 12px 0; border: 6px solid oklch(0.25 0.01 260); }
+	.row { display: grid; grid-template-columns: 90px 1fr 60px 70px 50px; gap: 16px; padding: 12px 24px; font-size: clamp(18px, 2.6vw, 30px); list-style: none; cursor: pointer; }
+	.row::-webkit-details-marker { display: none; }
+	.row.head { font: 600 12px "JetBrains Mono", monospace; color: var(--dim); cursor: default; padding-block: 4px 10px; }
+	.row-wrap + .row-wrap { border-top: 1px dashed oklch(0.25 0.01 260); }
+	.row-wrap[open] .row, .row:hover { background: oklch(0.18 0.02 70 / 0.5); }
+	.fs.F { color: var(--red); }
+	.fs.S { color: var(--green); }
+	.detail { padding: 4px 24px 20px 130px; color: oklch(0.8 0.01 260); line-height: 1.5; }
+	.detail p { margin: 0 0 6px; max-width: 60ch; }
+	.stack { font: 13px "JetBrains Mono", monospace; color: var(--dim); }
+	.detail a { color: var(--amber); }
+	.ticker { overflow: hidden; background: #000; border-radius: 6px; padding: 10px 0; }
+	.ticker-track { display: flex; width: max-content; white-space: pre; font-size: 20px; color: var(--green); text-shadow: 0 0 8px oklch(0.78 0.18 145 / 0.4); animation: tick 40s linear infinite; }
+	@keyframes tick { to { transform: translateX(-50%); } }
+	@media (prefers-reduced-motion: reduce) { .ticker-track { animation: none; } }
+	.ask { display: grid; grid-template-columns: minmax(260px, 1fr) 2fr; gap: 20px; }
+	.ask-q { display: flex; flex-direction: column; gap: 8px; }
+	.lbl { font: 600 12px "JetBrains Mono", monospace; color: var(--dim); margin: 0 0 4px; }
+	.ask-q button { display: flex; gap: 12px; align-items: center; text-align: left; font: inherit; font-size: 15px; color: inherit; background: var(--panel); border: 1px solid oklch(0.3 0.01 260); border-radius: 8px; padding: 12px 14px; cursor: pointer; }
+	.ask-q button.on, .ask-q button:hover { border-color: var(--amber); }
+	.ask-a { background: #000; border-radius: 10px; border: 6px solid oklch(0.25 0.01 260); padding: 24px; display: flex; align-items: center; }
+	.flap { font-size: clamp(18px, 2.2vw, 26px); line-height: 1.5; min-height: 6em; }
+	.foot { display: flex; justify-content: space-between; align-items: center; font-size: 14px; }
+	.foot a { color: var(--dim); }
+	@media (max-width: 760px) {
+		.ask { grid-template-columns: 1fr; }
+		.row { grid-template-columns: 64px 1fr 36px; }
+		.row > :nth-child(4), .row > :nth-child(5) { display: none; }
+		.detail { padding-left: 24px; }
+		.top { grid-template-columns: 1fr auto; }
+		.clock { grid-column: 1 / -1; }
+	}
+</style>

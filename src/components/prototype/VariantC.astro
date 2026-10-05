@@ -1,0 +1,176 @@
+---
+// PROTOTYPE — Variant C "Journey": horizontal scroll-snap coaches, top line-map strip, projects as season-pass tickets, Ask me as a ticket machine.
+import { stations, owner, experience, projects, questions } from "./data";
+---
+
+<div class="vc" data-c="VariantC">
+	<header class="strip" data-c="LineStrip">
+		<span class="who">{owner.name}</span>
+		<ol>
+			{stations.map((st, i) => (
+				<li><button type="button" data-go={i}><span class="dot"></span><span class="nm">{st.en}</span><span class="dv">{st.mr}</span></button></li>
+			))}
+		</ol>
+		<div class="progress"><span></span></div>
+	</header>
+
+	<div class="track" data-track>
+		<section class="coach intro" data-c="Coach">
+			<p class="code">CCG → BVI · FAST · 12 CAR</p>
+			<h1>{owner.name}</h1>
+			<p class="headline">{owner.headline}.</p>
+			<p class="pitch">{owner.pitch}</p>
+			<p class="hint">Scroll to ride →</p>
+		</section>
+
+		<section class="coach" data-c="Coach">
+			<p class="code">MMCT · ABOUT</p>
+			<h2>{owner.years} years, one city, a lot of pixels.</h2>
+			<p class="pitch">Based in {owner.city}. Frontend first, full stack when the feature needs it. I build systems other engineers (and LLMs) can use without asking me.</p>
+		</section>
+
+		<section class="coach" data-c="Coach">
+			<p class="code">DDR · WORK</p>
+			<div class="work">
+				{experience.map((e) => (
+					<article data-c="WorkCard"><time>{e.from} — {e.to}</time><h3>{e.org}</h3><p class="role">{e.role}</p><p>{e.note}</p></article>
+				))}
+			</div>
+		</section>
+
+		<section class="coach" data-c="Coach">
+			<p class="code">BA · PROJECTS</p>
+			<div class="tickets">
+				{projects.map((p) => (
+					<article class="ticket" data-c="Ticket">
+						<div class="t-main"><small>SEASON PASS · {p.kind === "F" ? "FIRST" : "SECOND"} CLASS</small><h3>{p.name}</h3><p>{p.line}</p></div>
+						<div class="t-stub"><small>VIA</small><b>{p.stack}</b><span class="punch">{p.live ? "LIVE" : "VIDEO"}</span></div>
+					</article>
+				))}
+			</div>
+		</section>
+
+		<section class="coach" data-c="Coach">
+			<p class="code">ADH · ASK ME</p>
+			<div class="machine" data-c="TicketMachine">
+				<div class="screen">
+					<p>Choose your question</p>
+					{questions.map((q, i) => <button type="button" data-q={i}>{q.q}</button>)}
+				</div>
+				<div class="slot"><div class="printed" data-printed aria-live="polite"></div></div>
+			</div>
+		</section>
+
+		<section class="coach end" data-c="Coach">
+			<p class="code">BVI · TERMINUS</p>
+			<h2>End of the line.</h2>
+			<a class="mail" href="mailto:dev@himanshupatil.dev">dev@himanshupatil.dev</a>
+		</section>
+	</div>
+</div>
+
+<script>
+	import { questions } from "./data";
+	const root = document.querySelector<HTMLElement>(".vc")!;
+	const track = root.querySelector<HTMLElement>("[data-track]")!;
+	const bar = root.querySelector<HTMLElement>(".progress span")!;
+	const btns = [...root.querySelectorAll<HTMLButtonElement>("[data-go]")];
+	track.addEventListener("wheel", (e) => {
+		if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) { track.scrollLeft += e.deltaY; e.preventDefault(); }
+	}, { passive: false });
+	const update = () => {
+		const max = track.scrollWidth - track.clientWidth;
+		const p = track.scrollLeft / Math.max(1, max);
+		bar.style.width = `${p * 100}%`;
+		const idx = Math.round(track.scrollLeft / track.clientWidth);
+		btns.forEach((b, i) => b.classList.toggle("here", i === idx));
+	};
+	track.addEventListener("scroll", update, { passive: true });
+	update();
+	btns.forEach((b) => b.addEventListener("click", () => track.scrollTo({ left: Number(b.dataset.go) * track.clientWidth, behavior: "smooth" })));
+
+	const printed = root.querySelector<HTMLElement>("[data-printed]")!;
+	root.querySelectorAll<HTMLButtonElement>("[data-q]").forEach((b) =>
+		b.addEventListener("click", () => {
+			const q = questions[Number(b.dataset.q)];
+			printed.classList.remove("go");
+			void printed.offsetWidth;
+			printed.innerHTML = `<small>ANSWER · ${new Date().toLocaleDateString("en-IN")}</small><b>${q.q}</b><p>${q.a}</p>`;
+			printed.classList.add("go");
+		}),
+	);
+</script>
+
+<style>
+	.vc {
+		--paper: oklch(0.95 0.025 85);
+		--card: oklch(0.985 0.012 85);
+		--ink: oklch(0.25 0.03 50);
+		--muted: oklch(0.5 0.03 50);
+		--line: oklch(0.55 0.15 250);
+		--first: oklch(0.86 0.1 90);
+		--second: oklch(0.88 0.06 200);
+		background: var(--paper);
+		color: var(--ink);
+		font-family: "Inter Tight", system-ui, sans-serif;
+		height: 100vh;
+		display: grid;
+		grid-template-rows: auto 1fr;
+		overflow: hidden;
+	}
+	.strip { position: relative; display: grid; grid-template-columns: auto 1fr; gap: 32px; align-items: center; padding: 16px clamp(16px, 4vw, 48px); border-bottom: 1px solid oklch(0.85 0.03 85); }
+	.who { font: 700 15px "JetBrains Mono", monospace; }
+	.strip ol { list-style: none; display: flex; justify-content: space-between; margin: 0; padding: 0; position: relative; }
+	.strip ol::before { content: ""; position: absolute; left: 8px; right: 8px; top: 8px; height: 4px; background: var(--line); border-radius: 2px; }
+	.strip button { position: relative; display: flex; flex-direction: column; align-items: center; gap: 4px; background: none; border: 0; cursor: pointer; color: inherit; font: inherit; }
+	.dot { width: 20px; height: 20px; border-radius: 50%; background: var(--card); border: 4px solid var(--line); transition: background 0.2s, transform 0.2s; }
+	.strip button.here .dot { background: var(--line); transform: scale(1.2); }
+	.nm { font-size: 12px; font-weight: 600; }
+	.dv { font: 11px "Noto Sans Devanagari", sans-serif; color: var(--muted); }
+	.progress { position: absolute; left: 0; right: 0; bottom: -1px; height: 3px; }
+	.progress span { display: block; height: 100%; background: var(--line); width: 0; }
+	.track { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
+	.coach { flex: 0 0 100%; scroll-snap-align: start; padding: clamp(24px, 6vh, 72px) clamp(16px, 7vw, 120px); display: flex; flex-direction: column; justify-content: center; border-right: 2px dashed oklch(0.82 0.03 85); overflow-y: auto; }
+	.code { font: 600 13px "JetBrains Mono", monospace; letter-spacing: 0.08em; color: var(--line); margin: 0 0 16px; }
+	h1 { font: 400 clamp(56px, 11vw, 160px)/0.9 "Instrument Serif", serif; margin: 0 0 16px; }
+	h2 { font: 400 clamp(36px, 6vw, 80px)/1 "Instrument Serif", serif; margin: 0 0 16px; max-width: 16ch; }
+	.headline { font-size: clamp(20px, 2.4vw, 30px); margin: 0 0 12px; }
+	.pitch { font-size: 18px; line-height: 1.6; color: var(--muted); max-width: 56ch; }
+	.hint { font: 13px "JetBrains Mono", monospace; color: var(--muted); margin-top: 32px; }
+	.work { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
+	.work article { background: var(--card); border-radius: 12px; padding: 24px; box-shadow: 0 1px 0 oklch(0.8 0.03 85); }
+	.work time { font: 13px "JetBrains Mono", monospace; color: var(--muted); }
+	.work h3 { font: 400 40px/1 "Instrument Serif", serif; margin: 8px 0 4px; }
+	.role { font-weight: 600; margin: 0 0 8px; }
+	.tickets { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 16px; }
+	.ticket { display: grid; grid-template-columns: 1fr 120px; border-radius: 10px; overflow: hidden; background: var(--first); box-shadow: 0 2px 0 oklch(0.7 0.05 85); transition: transform 0.2s; }
+	.ticket:nth-child(n + 3) { background: var(--second); }
+	.ticket:hover { transform: rotate(-1deg) translateY(-2px); }
+	.t-main { padding: 18px 20px; }
+	.t-main small, .t-stub small { font: 600 10px "JetBrains Mono", monospace; letter-spacing: 0.1em; }
+	.t-main h3 { font: 400 32px/1 "Instrument Serif", serif; margin: 6px 0; }
+	.t-main p { margin: 0; font-size: 14px; line-height: 1.45; }
+	.t-stub { border-left: 2px dashed oklch(0.25 0.03 50 / 0.4); padding: 18px 14px; display: flex; flex-direction: column; gap: 6px; font-size: 12px; }
+	.punch { margin-top: auto; font: 700 11px "JetBrains Mono", monospace; border: 2px solid currentColor; border-radius: 4px; padding: 3px 6px; align-self: start; rotate: -8deg; }
+	.machine { display: grid; grid-template-columns: 1fr 1fr; gap: 0; max-width: 900px; background: oklch(0.35 0.06 250); border-radius: 18px; padding: 20px; }
+	.screen { background: oklch(0.2 0.04 250); color: oklch(0.92 0.02 250); border-radius: 10px; padding: 20px; display: flex; flex-direction: column; gap: 8px; }
+	.screen p { margin: 0 0 6px; font: 600 12px "JetBrains Mono", monospace; letter-spacing: 0.08em; }
+	.screen button { text-align: left; font: inherit; font-size: 15px; padding: 12px; border-radius: 8px; border: 1px solid oklch(0.45 0.06 250); background: oklch(0.27 0.05 250); color: inherit; cursor: pointer; }
+	.screen button:hover { background: oklch(0.35 0.08 250); }
+	.slot { padding: 0 20px; overflow: hidden; }
+	.printed { background: oklch(0.99 0 0); border-radius: 4px; padding: 20px; font: 14px/1.6 "JetBrains Mono", monospace; transform: translateY(-110%); opacity: 0; }
+	.printed.go { animation: print 0.9s steps(12) forwards; }
+	@keyframes print { to { transform: translateY(0); opacity: 1; } }
+	@media (prefers-reduced-motion: reduce) { .printed.go { animation: none; transform: none; opacity: 1; } }
+	.printed :global(b) { display: block; margin: 8px 0; font-family: "Inter Tight", sans-serif; font-size: 16px; }
+	.printed :global(p) { margin: 0; }
+	.mail { font: 400 clamp(28px, 4vw, 56px) "Instrument Serif", serif; color: var(--line); }
+	@media (max-width: 760px) {
+		.strip { grid-template-columns: 1fr; gap: 12px; }
+		.nm, .dv { display: none; }
+		.machine { grid-template-columns: 1fr; }
+		.slot { padding: 16px 0 0; }
+		.ticket { grid-template-columns: 1fr 96px; }
+		.tickets { grid-template-columns: 1fr; }
+	}
+</style>

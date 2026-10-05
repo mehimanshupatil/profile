@@ -1,0 +1,40 @@
+---
+// PROTOTYPE — Mumbai Local identity: three structurally different variants on "/", switch with ?variant=A|B|C or ←/→. Dev-only.
+import VariantA from "./VariantA.astro";
+import VariantB from "./VariantB.astro";
+import VariantC from "./VariantC.astro";
+import InspectMode from "./InspectMode.astro";
+import PrototypeSwitcher from "./PrototypeSwitcher.astro";
+const variants = [
+	{ key: "A", name: "Line Map" },
+	{ key: "B", name: "Indicator Board" },
+	{ key: "C", name: "Journey" },
+];
+---
+
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>PROTOTYPE · Mumbai Local</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			rel="stylesheet"
+			href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700&family=Doto:wght@800&family=Instrument+Serif&family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@500;600&display=swap"
+		/>
+		<style is:global>
+			html, body { margin: 0; }
+			*, *::before, *::after { box-sizing: border-box; }
+			[hidden] { display: none !important; }
+			html { scroll-behavior: smooth; }
+		</style>
+	</head>
+	<body>
+		<div data-variant="A" hidden><VariantA /></div>
+		<div data-variant="B" hidden><VariantB /></div>
+		<div data-variant="C" hidden><VariantC /></div>
+		<InspectMode />
+		<PrototypeSwitcher variants={variants} />
+	</body>
+</html>

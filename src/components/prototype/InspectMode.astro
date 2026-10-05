@@ -1,0 +1,99 @@
+---
+// PROTOTYPE — Inspect mode: press I (or the pill) to outline every [data-c] component, hover for padding shading + type/colour/size specs.
+---
+
+<button type="button" class="ins-toggle" data-ins-toggle aria-pressed="false"><kbd>I</kbd> Inspect</button>
+<div class="ins-layer" data-ins-layer aria-hidden="true"></div>
+<div class="ins-tip" data-ins-tip aria-hidden="true"></div>
+
+<script>
+	const toggle = document.querySelector<HTMLButtonElement>("[data-ins-toggle]")!;
+	const layer = document.querySelector<HTMLElement>("[data-ins-layer]")!;
+	const tip = document.querySelector<HTMLElement>("[data-ins-tip]")!;
+	let on = false;
+
+	const visible = (el: Element) => (el as HTMLElement).offsetParent !== null || getComputedStyle(el).position === "fixed";
+	function draw() {
+		layer.innerHTML = "";
+		if (!on) return;
+		document.querySelectorAll<HTMLElement>("[data-c]").forEach((el) => {
+			if (!visible(el)) return;
+			const r = el.getBoundingClientRect();
+			if (r.bottom < 0 || r.top > innerHeight || r.width === 0) return;
+			const box = document.createElement("div");
+			box.className = "ins-box";
+			Object.assign(box.style, { left: `${r.left}px`, top: `${r.top}px`, width: `${r.width}px`, height: `${r.height}px` });
+			box.innerHTML = `<span>${el.dataset.c} <em>${Math.round(r.width)}×${Math.round(r.height)}</em></span>`;
+			layer.append(box);
+		});
+	}
+
+	function describe(el: HTMLElement) {
+		const cs = getComputedStyle(el);
+		const r = el.getBoundingClientRect();
+		const pad = [cs.paddingTop, cs.paddingRight, cs.paddingBottom, cs.paddingLeft].map((v) => parseFloat(v));
+		const textEl = (el.querySelector("h1,h2,h3,p,span,b") as HTMLElement) ?? el;
+		const ts = getComputedStyle(textEl);
+		const pv = document.createElement("div");
+		pv.className = "ins-pad";
+		Object.assign(pv.style, {
+			left: `${r.left}px`, top: `${r.top}px`, width: `${r.width}px`, height: `${r.height}px`,
+			borderWidth: pad.map((p) => `${p}px`).join(" "),
+		});
+		layer.querySelector(".ins-pad")?.remove();
+		layer.append(pv);
+		tip.innerHTML = `<b>&lt;${el.dataset.c}&gt;</b>
+			<dl><dt>size</dt><dd>${Math.round(r.width)} × ${Math.round(r.height)}</dd>
+			<dt>padding</dt><dd>${pad.join(" ")}</dd>
+			<dt>font</dt><dd>${ts.fontFamily.split(",")[0].replace(/"/g, "")} ${ts.fontWeight}</dd>
+			<dt>type</dt><dd>${parseFloat(ts.fontSize)}/${ts.lineHeight === "normal" ? "normal" : Math.round(parseFloat(ts.lineHeight))}</dd>
+			<dt>color</dt><dd><i style="background:${ts.color}"></i>${ts.color}</dd>
+			<dt>bg</dt><dd><i style="background:${cs.backgroundColor}"></i>${cs.backgroundColor}</dd></dl>`;
+		tip.style.left = `${Math.min(innerWidth - 300, Math.max(8, r.left))}px`;
+		tip.style.top = `${r.bottom + 8 > innerHeight - 180 ? Math.max(8, r.top - 190) : r.bottom + 8}px`;
+		tip.classList.add("show");
+	}
+
+	function set(v: boolean) {
+		on = v;
+		toggle.setAttribute("aria-pressed", String(v));
+		document.documentElement.classList.toggle("inspecting", v);
+		if (!v) tip.classList.remove("show");
+		draw();
+	}
+	toggle.addEventListener("click", () => set(!on));
+	addEventListener("keydown", (e) => {
+		const t = e.target as HTMLElement;
+		if (t.closest("input,textarea,[contenteditable]")) return;
+		if (e.key.toLowerCase() === "i" && !e.metaKey && !e.ctrlKey) set(!on);
+		if (e.key === "Escape") set(false);
+	});
+	addEventListener("scroll", draw, { passive: true, capture: true });
+	addEventListener("resize", draw);
+	addEventListener("variantchange", () => requestAnimationFrame(draw));
+	document.addEventListener("pointermove", (e) => {
+		if (!on) return;
+		const el = (e.target as HTMLElement).closest<HTMLElement>("[data-c]");
+		if (el) describe(el);
+		else { tip.classList.remove("show"); layer.querySelector(".ins-pad")?.remove(); }
+	});
+</script>
+
+<style is:global>
+	.ins-toggle { position: fixed; bottom: 16px; right: 16px; z-index: 9000; display: flex; gap: 8px; align-items: center; font: 600 13px "JetBrains Mono", monospace; padding: 8px 12px; border-radius: 999px; border: 1px solid oklch(0.5 0.02 260 / 0.4); background: oklch(1 0 0 / 0.8); color: oklch(0.2 0.02 260); backdrop-filter: blur(8px); cursor: pointer; }
+	.ins-toggle[aria-pressed="true"] { background: oklch(0.62 0.2 330); color: white; border-color: transparent; }
+	.ins-toggle kbd { font: inherit; border: 1px solid currentColor; border-radius: 4px; padding: 0 5px; opacity: 0.7; }
+	.ins-layer { position: fixed; inset: 0; pointer-events: none; z-index: 8000; }
+	.ins-box { position: fixed; outline: 1px dashed oklch(0.62 0.2 330); outline-offset: -1px; }
+	.ins-box span { position: absolute; top: 0; left: 0; translate: 0 -100%; font: 600 10px/1 "JetBrains Mono", monospace; background: oklch(0.62 0.2 330); color: white; padding: 3px 5px; border-radius: 3px 3px 0 0; white-space: nowrap; }
+	.ins-box em { font-style: normal; opacity: 0.75; }
+	.ins-pad { position: fixed; box-sizing: border-box; border-style: solid; border-color: oklch(0.75 0.15 145 / 0.35); background: oklch(0.7 0.12 250 / 0.12); }
+	.ins-tip { position: fixed; z-index: 9100; width: 290px; pointer-events: none; background: oklch(0.18 0.01 260); color: oklch(0.95 0 0); font: 12px/1.5 "JetBrains Mono", monospace; border-radius: 8px; padding: 10px 12px; box-shadow: 0 8px 24px oklch(0 0 0 / 0.3); opacity: 0; transition: opacity 0.12s; }
+	.ins-tip.show { opacity: 1; }
+	.ins-tip b { color: oklch(0.8 0.15 330); }
+	.ins-tip dl { display: grid; grid-template-columns: 64px 1fr; margin: 6px 0 0; }
+	.ins-tip dt { color: oklch(0.65 0.02 260); }
+	.ins-tip dd { margin: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+	.ins-tip i { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 6px; vertical-align: -1px; border: 1px solid oklch(1 0 0 / 0.3); }
+	.inspecting [data-c] { cursor: crosshair; }
+</style>

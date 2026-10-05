@@ -1,0 +1,157 @@
+---
+// PROTOTYPE — Variant A "Line Map": light editorial page, vertical Western Line rail as nav, yellow trilingual station boards as headings.
+import { stations, owner, experience, projects, questions } from "./data";
+const s = Object.fromEntries(stations.map((x) => [x.id, x]));
+---
+
+<div class="va" data-c="VariantA">
+	<nav class="rail" data-c="LineRail" aria-label="Sections">
+		<div class="rail-line"><span class="train" aria-hidden="true"></span></div>
+		<ol>
+			{stations.map((st) => (
+				<li><a href={`#a-${st.id}`} data-station={st.id}><span class="dot"></span><span class="lbl"><b>{st.en}</b><small>{st.section}</small></span></a></li>
+			))}
+		</ol>
+	</nav>
+
+	<main class="va-main">
+		<section id="a-intro" class="intro" data-c="Hero">
+			<p class="kicker">Western Line · Fast · Churchgate → Borivali</p>
+			<h1>{owner.name}</h1>
+			<p class="headline">{owner.headline}, {owner.city}.</p>
+			<p class="pitch">{owner.pitch}</p>
+		</section>
+
+		<section id="a-about">
+			<div class="board" data-c="StationBoard"><span class="mr">{s.about.mr}</span>{s.about.hi !== s.about.mr && <span class="hi">{s.about.hi}</span>}<span class="en">{s.about.en}</span></div>
+			<h2>About</h2>
+			<p class="body">{owner.years} years building production frontends. I care about the last 10%: the hover state, the reduced-motion path, the 60fps on a ₹12,000 phone.</p>
+		</section>
+
+		<section id="a-work">
+			<div class="board" data-c="StationBoard"><span class="mr">{s.work.mr}</span>{s.work.hi !== s.work.mr && <span class="hi">{s.work.hi}</span>}<span class="en">{s.work.en}</span></div>
+			<h2>Work</h2>
+			<ol class="timeline" data-c="Timeline">
+				{experience.map((e) => (
+					<li><time>{e.from} – {e.to}</time><div><h3>{e.role}, {e.org}</h3><p>{e.note}</p></div></li>
+				))}
+			</ol>
+		</section>
+
+		<section id="a-projects">
+			<div class="board" data-c="StationBoard"><span class="mr">{s.projects.mr}</span>{s.projects.hi !== s.projects.mr && <span class="hi">{s.projects.hi}</span>}<span class="en">{s.projects.en}</span></div>
+			<h2>Projects</h2>
+			<ul class="projects">
+				{projects.map((p) => (
+					<li data-c="ProjectRow"><span class="pf">PF {p.platform}</span><div><h3>{p.name}</h3><p>{p.line}</p><small>{p.stack}</small></div><span class="tag">{p.live ? "Live" : "Video"}</span></li>
+				))}
+			</ul>
+		</section>
+
+		<section id="a-ask">
+			<div class="board" data-c="StationBoard"><span class="mr">{s.ask.mr}</span>{s.ask.hi !== s.ask.mr && <span class="hi">{s.ask.hi}</span>}<span class="en">{s.ask.en}</span></div>
+			<h2>Ask me</h2>
+			<div class="ask" data-c="AskMe">
+				<div class="chips">{questions.map((q, i) => <button type="button" data-q={i}>{q.q}</button>)}</div>
+				<p class="answer" aria-live="polite">Pick a question — the answer streams in.</p>
+			</div>
+		</section>
+
+		<section id="a-contact">
+			<div class="board" data-c="StationBoard"><span class="mr">{s.contact.mr}</span>{s.contact.hi !== s.contact.mr && <span class="hi">{s.contact.hi}</span>}<span class="en">{s.contact.en}</span></div>
+			<h2>Contact</h2>
+			<p class="body">End of the line. <a href="mailto:dev@himanshupatil.dev">dev@himanshupatil.dev</a></p>
+		</section>
+	</main>
+</div>
+
+<script>
+	import { questions } from "./data";
+	const root = document.querySelector<HTMLElement>(".va")!;
+	const train = root.querySelector<HTMLElement>(".train")!;
+	const links = [...root.querySelectorAll<HTMLAnchorElement>(".rail a")];
+	const sections = links.map((a) => document.querySelector<HTMLElement>(a.getAttribute("href")!)!);
+	function onScroll() {
+		const max = document.documentElement.scrollHeight - innerHeight;
+		train.style.top = `${Math.min(1, scrollY / Math.max(1, max)) * 100}%`;
+		let cur = 0;
+		sections.forEach((s, i) => { if (s.getBoundingClientRect().top < innerHeight * 0.4) cur = i; });
+		links.forEach((a, i) => a.classList.toggle("here", i === cur));
+	}
+	addEventListener("scroll", onScroll, { passive: true });
+	addEventListener("variantchange", onScroll);
+	onScroll();
+
+	const answer = root.querySelector<HTMLElement>(".answer")!;
+	let timer = 0;
+	root.querySelectorAll<HTMLButtonElement>("[data-q]").forEach((b) =>
+		b.addEventListener("click", () => {
+			clearInterval(timer);
+			const text = questions[Number(b.dataset.q)].a;
+			let i = 0;
+			answer.textContent = "";
+			timer = window.setInterval(() => {
+				answer.textContent = text.slice(0, (i += 3));
+				if (i >= text.length) clearInterval(timer);
+			}, 16);
+		}),
+	);
+</script>
+
+<style>
+	.va {
+		--ink: oklch(0.22 0.02 260);
+		--paper: oklch(0.985 0.005 90);
+		--muted: oklch(0.5 0.02 260);
+		--line: oklch(0.58 0.2 25);
+		--board: oklch(0.88 0.17 95);
+		--rule: oklch(0.9 0.01 260);
+		background: var(--paper);
+		color: var(--ink);
+		font-family: "Inter Tight", system-ui, sans-serif;
+		display: grid;
+		grid-template-columns: 220px minmax(0, 1fr);
+		min-height: 100vh;
+	}
+	.rail { position: sticky; top: 0; height: 100vh; padding: 48px 0 48px 32px; display: flex; }
+	.rail-line { position: relative; width: 6px; background: var(--line); border-radius: 3px; margin: 8px 0; }
+	.train { position: absolute; left: 50%; width: 18px; height: 34px; translate: -50% -50%; background: var(--ink); border-radius: 6px; border: 3px solid var(--paper); transition: top 0.1s linear; }
+	.rail ol { list-style: none; margin: 0 0 0 -15px; padding: 0; display: flex; flex-direction: column; justify-content: space-between; }
+	.rail a { display: flex; align-items: center; gap: 14px; color: inherit; text-decoration: none; }
+	.dot { width: 18px; height: 18px; border-radius: 50%; background: var(--paper); border: 4px solid var(--line); flex: none; transition: transform 0.2s; }
+	.rail a.here .dot { transform: scale(1.35); background: var(--line); }
+	.lbl { display: flex; flex-direction: column; line-height: 1.15; }
+	.lbl b { font-weight: 600; font-size: 14px; }
+	.lbl small { color: var(--muted); font-size: 12px; }
+	.va-main { padding: 0 clamp(16px, 6vw, 96px) 120px; max-width: 860px; }
+	section { padding-top: 96px; }
+	.intro { min-height: 80vh; display: flex; flex-direction: column; justify-content: center; padding-top: 0; }
+	.kicker { font: 600 13px/1 "JetBrains Mono", monospace; letter-spacing: 0.08em; text-transform: uppercase; color: var(--line); }
+	h1 { font: 700 clamp(48px, 9vw, 112px)/0.95 "Big Shoulders Display", sans-serif; letter-spacing: -0.01em; margin: 16px 0 8px; text-transform: uppercase; }
+	.headline { font-size: clamp(20px, 2.4vw, 28px); margin: 0; }
+	.pitch, .body { font-size: 18px; line-height: 1.6; color: var(--muted); max-width: 60ch; }
+	.board { display: inline-flex; flex-direction: column; align-items: center; background: var(--board); color: #111; padding: 10px 28px 8px; border: 3px solid #111; border-radius: 4px; box-shadow: 0 2px 0 #111; min-width: 220px; }
+	.board .mr, .board .hi { font: 600 18px/1.2 "Noto Sans Devanagari", sans-serif; }
+	.board .en { font: 700 26px/1.1 "Big Shoulders Display", sans-serif; text-transform: uppercase; letter-spacing: 0.04em; }
+	h2 { font: 600 13px/1 "JetBrains Mono", monospace; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); margin: 20px 0; }
+	.timeline { list-style: none; padding: 0; margin: 0; }
+	.timeline li { display: grid; grid-template-columns: 160px 1fr; gap: 24px; padding: 20px 0; border-top: 1px solid var(--rule); }
+	.timeline time { font: 500 14px "JetBrains Mono", monospace; color: var(--muted); }
+	h3 { margin: 0 0 4px; font-size: 20px; }
+	.timeline p, .projects p { margin: 0; color: var(--muted); line-height: 1.5; }
+	.projects { list-style: none; padding: 0; margin: 0; }
+	.projects li { display: grid; grid-template-columns: 64px 1fr auto; gap: 20px; align-items: start; padding: 20px 0; border-top: 1px solid var(--rule); }
+	.pf { font: 700 14px "JetBrains Mono", monospace; background: var(--ink); color: var(--paper); padding: 6px 8px; border-radius: 4px; text-align: center; }
+	.projects small { font: 12px "JetBrains Mono", monospace; color: var(--line); }
+	.tag { font: 600 12px "JetBrains Mono", monospace; border: 1px solid currentColor; padding: 4px 8px; border-radius: 999px; }
+	.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+	.chips button { font: inherit; font-size: 15px; padding: 10px 16px; border-radius: 999px; border: 1px solid var(--rule); background: white; cursor: pointer; }
+	.chips button:hover { border-color: var(--line); color: var(--line); }
+	.answer { margin-top: 24px; padding: 24px; border-left: 4px solid var(--line); background: white; font-size: 18px; line-height: 1.6; min-height: 5em; }
+	a { color: var(--line); }
+	@media (max-width: 760px) {
+		.va { grid-template-columns: 1fr; }
+		.rail { display: none; }
+		.timeline li { grid-template-columns: 1fr; gap: 4px; }
+	}
+</style>

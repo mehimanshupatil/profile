@@ -7,8 +7,11 @@ import Pill from "../components/Pill.astro";
 import Skills from "../components/Skills.astro";
 // Layout import — provides basic page elements: <head>, <nav>, <footer> etc.
 import BaseLayout from "../layouts/BaseLayout.astro";
+// PROTOTYPE — dev-only Mumbai Local variants; production keeps the current page.
+import PrototypeHost from "../components/prototype/PrototypeHost.astro";
 ---
 
+{import.meta.env.DEV ? <PrototypeHost /> : (
 <BaseLayout>
 	<div class="stack gap-20 lg:gap-48">
 		<div class="wrapper stack gap-8 lg:gap-20">
@@ -38,6 +41,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 		<ContactCTA />
 	</div>
 </BaseLayout>
+)}
 
 <style>
 	.hero {

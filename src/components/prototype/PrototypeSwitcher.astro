@@ -1,0 +1,44 @@
+---
+// PROTOTYPE — floating variant switcher. Dev-only: the host is never rendered in production builds.
+interface Props { variants: { key: string; name: string }[] }
+const { variants } = Astro.props;
+---
+
+<div class="proto-bar" data-proto-bar data-variants={JSON.stringify(variants)}>
+	<button type="button" data-dir="-1" aria-label="Previous variant">←</button>
+	<span data-label></span>
+	<button type="button" data-dir="1" aria-label="Next variant">→</button>
+</div>
+
+<script>
+	const bar = document.querySelector<HTMLElement>("[data-proto-bar]")!;
+	const variants: { key: string; name: string }[] = JSON.parse(bar.dataset.variants!);
+	const label = bar.querySelector<HTMLElement>("[data-label]")!;
+	const current = () => {
+		const k = new URLSearchParams(location.search).get("variant");
+		return Math.max(0, variants.findIndex((v) => v.key === k));
+	};
+	function show(i: number) {
+		const v = variants[(i + variants.length) % variants.length];
+		const url = new URL(location.href);
+		url.searchParams.set("variant", v.key);
+		history.replaceState(null, "", url);
+		document.querySelectorAll<HTMLElement>("[data-variant]").forEach((el) => (el.hidden = el.dataset.variant !== v.key));
+		label.textContent = `${v.key} (${v.name})`;
+		scrollTo(0, 0);
+		dispatchEvent(new Event("variantchange"));
+	}
+	bar.querySelectorAll<HTMLButtonElement>("[data-dir]").forEach((b) => b.addEventListener("click", () => show(current() + Number(b.dataset.dir))));
+	addEventListener("keydown", (e) => {
+		if ((e.target as HTMLElement).closest("input,textarea,[contenteditable]")) return;
+		if (e.key === "ArrowLeft") show(current() - 1);
+		if (e.key === "ArrowRight") show(current() + 1);
+	});
+	show(current());
+</script>
+
+<style>
+	.proto-bar { position: fixed; bottom: 64px; left: 50%; translate: -50% 0; z-index: 9500; display: flex; align-items: center; gap: 12px; padding: 6px; border-radius: 999px; background: #ff2d87; color: white; font: 600 13px system-ui, sans-serif; box-shadow: 0 6px 20px rgb(0 0 0 / 0.35); }
+	.proto-bar button { width: 32px; height: 32px; border-radius: 50%; border: 0; background: rgb(255 255 255 / 0.2); color: white; font-size: 16px; cursor: pointer; }
+	.proto-bar span { min-width: 170px; text-align: center; }
+</style>
